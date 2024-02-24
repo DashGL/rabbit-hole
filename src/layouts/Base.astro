@@ -64,8 +64,10 @@ const creator = "@kion_dgl";
     <body>
         <Drawer />
         <Navbar />
-
-        <slot />
+        <article class="pt-20">
+            <slot />
+        </article>
+    
         <Footer />
         <script is:inline>
             document.documentElement.setAttribute(
