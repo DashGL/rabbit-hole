@@ -6,6 +6,9 @@
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "paths": {
+      "@assets/*": [
+        "./src/assets/*"
+      ],
       "@layouts/*": [
         "./src/layouts/*"
       ],
