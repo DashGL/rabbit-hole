@@ -63,14 +63,3 @@
         </li>
     </ul>
 </div>
-
-<script is:inline>
-    const inputs = document.getElementsByName("theme-dropdown");
-    for (let i = 0; i < inputs.length; i++) {
-        inputs[i].addEventListener("change", () => {
-            const theme = inputs[i].value;
-            document.querySelector("html").setAttribute("data-theme", theme);
-            localStorage.setItem("theme", theme);
-        });
-    }
-</script>
