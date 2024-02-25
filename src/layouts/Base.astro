@@ -22,7 +22,7 @@ const author = "Kion @kion_dgl";
 const creator = "@kion_dgl";
 ---
 
-<html lang="en" data-theme="cupcake">
+<html lang="en">
     <head>
         <!-- favicon -->
         <link rel="shortcut icon" href="/favicon.svg" />
@@ -64,10 +64,10 @@ const creator = "@kion_dgl";
     <body>
         <Drawer />
         <Navbar />
-        <article class="pt-20">
+        <article class="pt-20 pb-8">
             <slot />
         </article>
-    
+
         <Footer />
         <script is:inline>
             document.documentElement.setAttribute(
@@ -82,6 +82,13 @@ const creator = "@kion_dgl";
                     localStorage.setItem("theme", theme);
                 });
             }
+
+            document.addEventListener("astro:page-load", () => {
+                document.documentElement.setAttribute(
+                    "data-theme",
+                    localStorage.getItem("theme") || "default",
+                );
+            });
         </script>
     </body>
 </html>
