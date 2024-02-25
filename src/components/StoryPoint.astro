@@ -5,11 +5,14 @@ export interface Props {
     title: string;
     imagePath: string;
     chapter: string;
+    description: string;
 }
-const { title, imagePath, chapter } = Astro.props;
+const { title, imagePath, chapter, description } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>(
-    "/src/assets/*.{jpeg,jpg,png,gif}",
+    "/src/assets/scenes/*.{jpeg,jpg,png,gif}",
 );
+const key = `/src/assets/${imagePath}`
+console.log(key)
 console.log(images);
 ---
 
@@ -37,12 +40,11 @@ console.log(images);
         <time class="font-mono italic">{chapter}</time>
         <div class="text-lg font-black">{title}</div>
         <Image
-            src={images[`/src/assets/${imagePath}`]!()}
+            src={images[key]!()}
             class="rounded-lg"
             alt="A bird sitting on a nest of eggs."
         />
-        The start of Kion's adventure where he gets pulled into his computer at 4:04
-        AM.
+        {description}
     </div>
     <hr />
 </li>
