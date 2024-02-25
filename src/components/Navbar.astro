@@ -2,167 +2,195 @@
 
 ---
 
-<div class="fixed w-full z-40 shadow-lg navbar bg-base-100">
-    <div class="navbar-start">
-        <div class="dropdown">
-            <div class="flex-none lg:hidden">
-                <label
-                    for="my-drawer-3"
-                    aria-label="open sidebar"
-                    class="btn btn-square btn-ghost"
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        class="inline-block w-6 h-6 stroke-current"
-                        ><path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h16"></path></svg
+<div class="fixed w-full z-40 shadow-lg">
+    <nav class="navbar bg-base-100 container mx-auto">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div class="flex-none lg:hidden">
+                    <label
+                        for="my-drawer-3"
+                        aria-label="open sidebar"
+                        class="btn btn-square btn-ghost"
                     >
-                </label>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            class="inline-block w-6 h-6 stroke-current"
+                            ><path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path></svg
+                        >
+                    </label>
+                </div>
             </div>
+            <a class="btn btn-ghost text-xl">DashGL</a>
         </div>
-        <a class="btn btn-ghost text-xl">DashGL</a>
-    </div>
-    <div class="navbar-end hidden lg:flex">
-        <ul class="menu menu-horizontal px-1">
-            <li>
-                <details>
-                    <summary>Theme</summary>
-                    <ul class="p-2">
-                        <li>
-                            <input
-                                type="radio"
-                                name="theme-dropdown"
-                                class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                                aria-label="Default"
-                                value="default"
-                            />
-                        </li>
-                        <li>
-                            <input
-                                type="radio"
-                                name="theme-dropdown"
-                                class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                                aria-label="Retro"
-                                value="retro"
-                            />
-                        </li>
-                        <li>
-                            <input
-                                type="radio"
-                                name="theme-dropdown"
-                                class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                                aria-label="Cyberpunk"
-                                value="cyberpunk"
-                            />
-                        </li>
-                        <li>
-                            <input
-                                type="radio"
-                                name="theme-dropdown"
-                                class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                                aria-label="Valentine"
-                                value="valentine"
-                            />
-                        </li>
-                        <li>
-                            <input
-                                type="radio"
-                                name="theme-dropdown"
-                                class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                                aria-label="Aqua"
-                                value="aqua"
-                            />
-                        </li>
-                        <li>
-                            <input
-                                type="radio"
-                                name="theme-dropdown"
-                                class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                                aria-label="Forest"
-                                value="forest"
-                            />
-                        </li>
-                        <li>
-                            <input
-                                type="radio"
-                                name="theme-dropdown"
-                                class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                                aria-label="Emerald"
-                                value="emerald"
-                            />
-                        </li>
-                        <li>
-                            <input
-                                type="radio"
-                                name="theme-dropdown"
-                                class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                                aria-label="Lofi"
-                                value="lofi"
-                            />
-                        </li>
-                        <li>
-                            <input
-                                type="radio"
-                                name="theme-dropdown"
-                                class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                                aria-label="Wireframe"
-                                value="wireframe"
-                            />
-                        </li>
-                        <li>
-                            <input
-                                type="radio"
-                                name="theme-dropdown"
-                                class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                                aria-label="Winter"
-                                value="winter"
-                            />
-                        </li>
-                    </ul>
-                </details>
-            </li>
-            <li><a href="/">Home</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li>
-                <details>
-                    <summary>Story</summary>
-                    <ul class="p-2">
-                        <li>
-                            <a href="/story">Summary</a>
-                        </li>
-                        <li>
-                            <a href="/story/prologue">Prologue</a>
-                        </li>
-                        <li>
-                            <a href="/story/brickout">Brickout</a>
-                        </li>
-                        <li>
-                            <a href="/story/snake">Snake</a>
-                        </li>
-                        <li>
-                            <a href="/story/tetris">Tetris</a>
-                        </li>
-                        <li>
-                            <a href="/story/invaders">Invaders</a>
-                        </li>
-                        <li>
-                            <a href="/story/astroids">Astroids</a>
-                        </li>
-                        <li>
-                            <a href="/story/flappy">Flappy Bird</a>
-                        </li>
-                        <li>
-                            <a href="/story/epilogue">Epilogue</a>
-                        </li>
-                    </ul>
-                </details>
-            </li>
-            <li><a href="/about">About</a></li>
-        </ul>
-    </div>
+        <div class="navbar-end hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+                <li>
+                    <details>
+                        <summary>Theme</summary>
+                        <ul class="p-2">
+                            <li>
+                                <input
+                                    type="radio"
+                                    name="theme-dropdown"
+                                    class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                                    aria-label="Default"
+                                    value="default"
+                                />
+                            </li>
+                            <li>
+                                <input
+                                    type="radio"
+                                    name="theme-dropdown"
+                                    class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                                    aria-label="Retro"
+                                    value="retro"
+                                />
+                            </li>
+                            <li>
+                                <input
+                                    type="radio"
+                                    name="theme-dropdown"
+                                    class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                                    aria-label="Cyberpunk"
+                                    value="cyberpunk"
+                                />
+                            </li>
+                            <li>
+                                <input
+                                    type="radio"
+                                    name="theme-dropdown"
+                                    class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                                    aria-label="Valentine"
+                                    value="valentine"
+                                />
+                            </li>
+                            <li>
+                                <input
+                                    type="radio"
+                                    name="theme-dropdown"
+                                    class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                                    aria-label="Aqua"
+                                    value="aqua"
+                                />
+                            </li>
+                            <li>
+                                <input
+                                    type="radio"
+                                    name="theme-dropdown"
+                                    class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                                    aria-label="Forest"
+                                    value="forest"
+                                />
+                            </li>
+                            <li>
+                                <input
+                                    type="radio"
+                                    name="theme-dropdown"
+                                    class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                                    aria-label="Emerald"
+                                    value="emerald"
+                                />
+                            </li>
+                            <li>
+                                <input
+                                    type="radio"
+                                    name="theme-dropdown"
+                                    class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                                    aria-label="Lofi"
+                                    value="lofi"
+                                />
+                            </li>
+                            <li>
+                                <input
+                                    type="radio"
+                                    name="theme-dropdown"
+                                    class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                                    aria-label="Wireframe"
+                                    value="wireframe"
+                                />
+                            </li>
+                            <li>
+                                <input
+                                    type="radio"
+                                    name="theme-dropdown"
+                                    class="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                                    aria-label="Winter"
+                                    value="winter"
+                                />
+                            </li>
+                        </ul>
+                    </details>
+                </li>
+                <li><a href={`${import.meta.env.BASE_URL}/`}>Home</a></li>
+                <li><a href={`${import.meta.env.BASE_URL}/blog`}>Blog</a></li>
+                <li>
+                    <details>
+                        <summary>Story</summary>
+                        <ul class="p-2">
+                            <li>
+                                <a href={`${import.meta.env.BASE_URL}/story`}
+                                    >Summary</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href={`${import.meta.env.BASE_URL}/story/prologue`}
+                                    >Prologue</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href={`${import.meta.env.BASE_URL}/story/brickout`}
+                                    >Brickout</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href={`${import.meta.env.BASE_URL}/story/snake`}
+                                    >Snake</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href={`${import.meta.env.BASE_URL}/story/tetris`}
+                                    >Tetris</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href={`${import.meta.env.BASE_URL}/story/invaders`}
+                                    >Invaders</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href={`${import.meta.env.BASE_URL}/story/astroids`}
+                                    >Astroids</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href={`${import.meta.env.BASE_URL}/storyflappy/`}
+                                    >Flappy Bird</a
+                                >
+                            </li>
+                            <li>
+                                <a
+                                    href={`${import.meta.env.BASE_URL}/story/epilogue`}
+                                    >Epilogue</a
+                                >
+                            </li>
+                        </ul>
+                    </details>
+                </li>
+                <li><a href="/about">About</a></li>
+            </ul>
+        </div>
+    </nav>
 </div>
