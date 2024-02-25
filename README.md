@@ -1,4 +1,11 @@
-# Astro Starter Kit: Minimal
+# DashGL: Down the Rabbit Hole
+
+### Icons
+
+- https://icones.js.org/
+- https://www.astroicon.dev/guides/components/
+
+
 
 ```sh
 npm create astro@latest -- --template minimal
