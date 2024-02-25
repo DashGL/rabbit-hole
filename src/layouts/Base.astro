@@ -72,7 +72,7 @@ const creator = "@kion_dgl";
         <script is:inline>
             document.documentElement.setAttribute(
                 "data-theme",
-                localStorage.getItem("theme"),
+                localStorage.getItem("theme") || "default",
             );
             const inputs = document.getElementsByName("theme-dropdown");
             for (let i = 0; i < inputs.length; i++) {
