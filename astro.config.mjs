@@ -4,6 +4,7 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://dashgl.com',
+  site: 'https://dashgl.github.io',
+  base: '/rabbit-hole',
   integrations: [tailwind()]
 });
