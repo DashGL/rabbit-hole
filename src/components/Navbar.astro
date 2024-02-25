@@ -1,9 +1,9 @@
 ---
-
+const { pathname } = Astro.url;
 ---
 
-<nav class="bg-base-100">
-    <div class="navbar container mx-auto">
+<nav class="bg-base-200 text-base-content shadow">
+    <div class="navbar max-w-screen-xl mx-auto">
         <div class="navbar-start">
             <div class="dropdown">
                 <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -87,11 +87,10 @@
                     </li>
                 </ul>
             </div>
-            <a class="text-xl">DashGL</a>
+            <h1><a class="text-xl">DashGL</a></h1>
         </div>
         <div class="navbar-end hidden lg:flex">
             <ul class="menu menu-horizontal px-1">
-  
                 <li><a href={`${import.meta.env.BASE_URL}/`}>Home</a></li>
                 <li><a href={`${import.meta.env.BASE_URL}/blog`}>Blog</a></li>
                 <li>
@@ -99,46 +98,55 @@
                         <summary>Story</summary>
                         <ul class="p-2">
                             <li>
-                                <a href={`${import.meta.env.BASE_URL}/story`}>Summary</a
+                                <a href={`${import.meta.env.BASE_URL}/story`}
+                                    >Summary</a
                                 >
                             </li>
                             <li>
-                                <a href={`${import.meta.env.BASE_URL}/story/prologue`}
+                                <a
+                                    href={`${import.meta.env.BASE_URL}/story/prologue`}
                                     >Prologue</a
                                 >
                             </li>
                             <li>
-                                <a href={`${import.meta.env.BASE_URL}/story/brickout`}
+                                <a
+                                    href={`${import.meta.env.BASE_URL}/story/brickout`}
                                     >Brickout</a
                                 >
                             </li>
                             <li>
-                                <a href={`${import.meta.env.BASE_URL}/story/snake`}
+                                <a
+                                    href={`${import.meta.env.BASE_URL}/story/snake`}
                                     >Snake</a
                                 >
                             </li>
                             <li>
-                                <a href={`${import.meta.env.BASE_URL}/story/tetris`}
+                                <a
+                                    href={`${import.meta.env.BASE_URL}/story/tetris`}
                                     >Tetris</a
                                 >
                             </li>
                             <li>
-                                <a href={`${import.meta.env.BASE_URL}/story/invaders`}
+                                <a
+                                    href={`${import.meta.env.BASE_URL}/story/invaders`}
                                     >Invaders</a
                                 >
                             </li>
                             <li>
-                                <a href={`${import.meta.env.BASE_URL}/story/astroids`}
+                                <a
+                                    href={`${import.meta.env.BASE_URL}/story/astroids`}
                                     >Astroids</a
                                 >
                             </li>
                             <li>
-                                <a href={`${import.meta.env.BASE_URL}/storyflappy/`}
+                                <a
+                                    href={`${import.meta.env.BASE_URL}/storyflappy/`}
                                     >Flappy Bird</a
                                 >
                             </li>
                             <li>
-                                <a href={`${import.meta.env.BASE_URL}/story/epilogue`}
+                                <a
+                                    href={`${import.meta.env.BASE_URL}/story/epilogue`}
                                     >Epilogue</a
                                 >
                             </li>
@@ -149,4 +157,26 @@
             </ul>
         </div>
     </div>
+
+    <!-- Hero -->
+    {
+        pathname.includes("/about") && (
+            <section>
+                <div class="mx-auto max-w-screen-lg px-4 py-0 sm:px-6 pb-6 sm:pb-12 lg:px-8">
+                    <div class="flex items-start justify-between">
+                        <div class="rounded-lg w-3/5">
+                            <h1 class="text-lg md:text-2xl font-bold sm:text-3xl mb-0">
+                                @kion_dgl
+                            </h1>
+                            <p class="mt-1.5 text-sm md:text-lg">
+                                DashGL all of the stuff and things
+                            </p>
+                            <div class="flex space-x-5 pt-8 m-auto" />
+                        </div>
+                        <div class="rounded-lg"></div>
+                    </div>
+                </div>
+            </section>
+        )
+    }
 </nav>
