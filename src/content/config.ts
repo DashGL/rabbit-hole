@@ -10,6 +10,7 @@ const blogCollection = defineCollection({
         publishDate: z.date(),
         category: z.enum(['Hardware', 'Weebits']),
         heroImage: image(),
+        thumbnail: image(),
     }),
 });
 

@@ -3,8 +3,18 @@ title: Story Reference Device
 description: Trying to make a concept device that doesn't suck
 category: Hardware
 publishDate: 2024-02-26T06:18:32.801Z
-heroImage: /public/blog/ref-device-mock.png
+heroImage: /src/assets/blog/ref-device-mock.png
+thumbnail: /src/assets/thumbnails/hardware-ref.png
 ---
+
+## Table of Contents
+
+- Concept for device (which generation)
+- Design a "modern gameboy advance"
+- Hardware mock of the components (screen, input, battery, pi zero 2w)
+- Reference devices
+- Machine for developing
+- Package and deploy
 
 ## What is Lorem Ipsum?
 
