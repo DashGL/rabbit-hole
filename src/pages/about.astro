@@ -1,9 +1,14 @@
 ---
 import Base from "@layouts/Base.astro";
+import { Image } from "astro:assets";
+import splash from "@assets/splash.png";
 ---
 
 <Base>
     <!-- Theme Select -->
+    <div class="max-w-screen-xl mx-auto">
+        <Image class='mb-8 rounded-lg w-full' src={splash} alt="" />
+    </div>
     <div
         class="max-w-screen-xl mx-auto rounded-box grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 p-2"
     >
