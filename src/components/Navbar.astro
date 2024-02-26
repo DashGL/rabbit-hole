@@ -1,6 +1,4 @@
----
-const { pathname } = Astro.url;
----
+
 
 <nav class="bg-base-200 text-base-content shadow">
     <div class="navbar max-w-screen-xl mx-auto">
@@ -158,25 +156,4 @@ const { pathname } = Astro.url;
         </div>
     </div>
 
-    <!-- Hero -->
-    {
-        pathname.includes("/about") && (
-            <section>
-                <div class="mx-auto max-w-screen-lg px-4 py-0 sm:px-6 pb-6 sm:pb-12 lg:px-8">
-                    <div class="flex items-start justify-between">
-                        <div class="rounded-lg w-3/5">
-                            <h1 class="text-lg md:text-2xl font-bold sm:text-3xl mb-0">
-                                @kion_dgl
-                            </h1>
-                            <p class="mt-1.5 text-sm md:text-lg">
-                                DashGL all of the stuff and things
-                            </p>
-                            <div class="flex space-x-5 pt-8 m-auto" />
-                        </div>
-                        <div class="rounded-lg"></div>
-                    </div>
-                </div>
-            </section>
-        )
-    }
 </nav>
