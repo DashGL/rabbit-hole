@@ -6,13 +6,14 @@ export interface Props {
     imagePath: string;
     chapter: string;
     description: string;
+    link: string;
 }
-const { title, imagePath, chapter, description } = Astro.props;
+const { title, imagePath, chapter, description, link } = Astro.props;
 const images = import.meta.glob<{ default: ImageMetadata }>(
     "/src/assets/scenes/*.{jpeg,jpg,png,gif}",
 );
-const key = `/src/assets/${imagePath}`
-console.log(key)
+const key = `/src/assets/${imagePath}`;
+console.log(key);
 console.log(images);
 ---
 
@@ -39,11 +40,13 @@ console.log(images);
     >
         <time class="font-mono italic">{chapter}</time>
         <div class="text-lg font-black">{title}</div>
-        <Image
-            src={images[key]!()}
-            class="rounded-lg"
-            alt="A bird sitting on a nest of eggs."
-        />
+        <a href={link}
+            ><Image
+                src={images[key]!()}
+                class="rounded-lg"
+                alt="A bird sitting on a nest of eggs."
+            /></a
+        >
         {description}
     </div>
     <hr />

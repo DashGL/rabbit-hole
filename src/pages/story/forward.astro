@@ -1,0 +1,47 @@
+---
+import Base from "@layouts/Base.astro";
+import { Image } from "astro:assets";
+import scene from "@assets/scenes/T0_End.jpeg";
+---
+
+<Base>
+    <div class="max-w-screen-xl mx-auto flex flex-wrap py-6">
+        <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
+            <ul class="steps steps-vertical">
+                <li class="step step-primary">Register</li>
+                <li class="step step-primary">Choose plan</li>
+                <li class="step">Purchase</li>
+                <li class="step">Receive Product</li>
+            </ul>
+        </aside>
+        <!-- Posts Section -->
+        <section class="w-full md:w-2/3 flex flex-col px-3 space-y-4 prose">
+            <Image src={scene} alt="Kion falls into the Digital World" />
+            <h1>Falling Down the Rabbit Hole</h1>
+            <p>
+                Kion screams as he falls down, landing with a thud. The impact
+                of the fall surprised him as his brain tries to comprehend
+                what's going on. He finds himself in a dark cave barely
+                illuminated by crystals and mushrooms scattered across the floor
+                and walls. The air felt thick like being in an old library full
+                of dusty books.
+            </p>
+            <p>
+                Still recovering from the shock of the fall, Kion hears a
+                mysterious sound: "Fufufufu". The quiet laughter echoed through
+                the cavern. The sound continued to grow and get closer. A dark
+                shadow darted between mushrooms as it grew closer to Kion. Kion
+                started to panic, he was still on the ground unable to stand
+                after the fall. Kion started to try and crawl away from what
+                ever was approaching him. The shadow darted and dissappeared as
+                suddenly a figure appeared in front of him and bent down in
+                front of his face. "Sup weeb" the figure
+            </p>
+
+            <img
+                class="rounded-lg"
+                src={`${import.meta.env.BASE_URL}/storyboard/nagatoro-sup-weeb.jpg`}
+            />
+        </section>
+    </div>
+</Base>
