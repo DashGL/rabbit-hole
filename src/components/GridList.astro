@@ -23,7 +23,7 @@ console.log(posts);
                     <h2 class="card-title">{post.data.title}</h2>
                     <p>{post.data.description}</p>
                     <div class="card-actions justify-end">
-                        <Link href="/blog/article">
+                        <Link href={`/blog/${post.slug}`}>
                             <span class="btn btn-primary">Read Now</span>
                         </Link>
                     </div>

@@ -1,0 +1,45 @@
+---
+import { CollectionEntry, getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import Base from "@layouts/Base.astro";
+
+export async function getStaticPaths() {
+    const posts = await getCollection("blog");
+    return posts.map((post) => ({
+        params: { slug: post.slug },
+        props: post,
+    }));
+}
+
+import sample from "@assets/sample/my-journey-to-build-daisyui.jpg";
+type Props = CollectionEntry<"blog">;
+const post = Astro.props;
+const { Content, headings} = await post.render();
+
+---
+
+<Base>
+    <div class="mx-auto w-full max-w-2xl">
+        <div class="prose prose-sm md:prose-base mx-auto">
+            <figure class="w-full">
+                <Image class="rounded-lg" src={post.data.heroImage} alt="" />
+            </figure>
+            <div>
+                <div class="text-base-content/60 mb-2 text-xs">
+                    <span title="4 Oct 2023" class="italic"
+                        >Published 4 months ago</span
+                    > by
+                    <span>Kion</span>
+                </div>
+                <h1>
+                    {post.data.title}
+                </h1>
+                <p>
+                    {post.data.description}
+                </p>
+
+                <Content />
+            </div>
+        </div>
+    </div>
+</Base>
