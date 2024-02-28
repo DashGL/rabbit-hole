@@ -50,14 +50,18 @@ const steps = [
     },
 ];
 
+let index = -1;
 const { pathname } = Astro.url;
 for (let i = 0; i < steps.length; i++) {
     const { href } = steps[i]!;
     steps[i]!.filled = true;
     if (pathname.includes(href)) {
+        index = i;
         break;
     }
 }
+const prev = steps[index - 1];
+const next = steps[index + 1];
 ---
 
 <Base>
@@ -78,6 +82,64 @@ for (let i = 0; i < steps.length; i++) {
         <!-- Posts Section -->
         <section class="w-full md:w-2/3 flex flex-col px-3 space-y-4 prose">
             <slot />
+            <!-- Page navigation -->
+            <div
+                class="sm:flex items-center justify-between py-8 space-y-6 sm:space-y-0 sm:space-x-4"
+            >
+                {
+                    prev && (
+                        <div class="sm:w-1/2 sm:flex flex-col items-start">
+                            <div>
+                                <div class="text-xs font-[650] text-blue-600 uppercase mb-1">
+                                    Prev
+                                </div>
+                                <div>
+                                    <Link href={prev.href}>
+                                        <span class="text-slate-800 font-[650] flex items-center dark:text-slate-200">
+                                            <svg
+                                                class="fill-slate-400 shrink-0 mr-2 rotate-180 dark:fill-slate-500"
+                                                width="8"
+                                                height="10"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path d="M1 2 2.414.586 6.828 5 2.414 9.414 1 8l3-3z" />
+                                            </svg>
+                                            <span>{prev.title}</span>
+                                        </span>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                }
+
+                {
+                    next && (
+                        <div class="sm:w-1/2 sm:flex flex-col items-end ml-auto">
+                            <div>
+                                <div class="text-xs font-[650] text-blue-600 uppercase mb-1">
+                                    Next
+                                </div>
+                                <div>
+                                    <Link href={next.href}>
+                                        <span class="text-slate-800 font-[650] flex items-center dark:text-slate-200">
+                                            <span>{next.title}</span>
+                                            <svg
+                                                class="fill-slate-400 shrink-0 ml-2 dark:fill-slate-500"
+                                                width="8"
+                                                height="10"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                            >
+                                                <path d="M1 2 2.414.586 6.828 5 2.414 9.414 1 8l3-3z" />
+                                            </svg>
+                                        </span>
+                                    </Link>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                }
+            </div>
         </section>
     </div>
 </Base>
