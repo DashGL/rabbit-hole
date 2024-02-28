@@ -25,9 +25,7 @@ import Link from "@components/Link.astro";
                     class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
                 >
                     <li><Link href="/">Home</Link></li>
-                    <li>
-                        <Link href="/blog">Blog</Link>
-                    </li>
+
                     <li>
                         <span>Story</span>
                         <ul class="p-2">
@@ -60,7 +58,9 @@ import Link from "@components/Link.astro";
                             </li>
                         </ul>
                     </li>
-
+                    <li>
+                        <Link href="/blog">Blog</Link>
+                    </li>
                     <li>
                         <Link href="/story/about">About</Link>
                     </li>
@@ -73,7 +73,6 @@ import Link from "@components/Link.astro";
                 <li>
                     <Link href="/">Home</Link>
                 </li>
-                <li><Link href="/blog">Blog</Link></li>
                 <li>
                     <details>
                         <summary>Story</summary>
@@ -108,6 +107,7 @@ import Link from "@components/Link.astro";
                         </ul>
                     </details>
                 </li>
+                <li><Link href="/blog">Blog</Link></li>
                 <li><Link href="/about">About</Link></li>
             </ul>
         </div>
