@@ -1,0 +1,83 @@
+---
+import Base from "@layouts/Base.astro";
+import Link from "@components/Link.astro";
+
+const steps = [
+    {
+        title: "Prologue",
+        href: "/story/prologue",
+        filled: false,
+    },
+    {
+        title: "Forward",
+        href: "/story/forward",
+        filled: false,
+    },
+    {
+        title: "Brickout",
+        href: "/story/brickout",
+        filled: false,
+    },
+    {
+        title: "Snake",
+        href: "/story/snake",
+        filled: false,
+    },
+    {
+        title: "Tetris",
+        href: "/story/tetris",
+        filled: false,
+    },
+    {
+        title: "Invaders",
+        href: "/story/invaders",
+        filled: false,
+    },
+    {
+        title: "Astroids",
+        href: "/story/astroids",
+        filled: false,
+    },
+    {
+        title: "Flappy Bird",
+        href: "/story/flappy",
+        filled: false,
+    },
+    {
+        title: "Epilogue",
+        href: "/story/epilogue",
+        filled: false,
+    },
+];
+
+const { pathname } = Astro.url;
+for (let i = 0; i < steps.length; i++) {
+    const { href } = steps[i]!;
+    steps[i]!.filled = true;
+    if (pathname.includes(href)) {
+        break;
+    }
+}
+---
+
+<Base>
+    <div class="max-w-screen-xl mx-auto flex flex-wrap py-6">
+        <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
+            <ul class="steps steps-vertical">
+                {
+                    steps.map((step) => (
+                        <li
+                            class:list={["step", step.filled && "step-primary"]}
+                        >
+                            <Link href={step.href}>{step.title}</Link>
+                        </li>
+                    ))
+                }
+            </ul>
+        </aside>
+        <!-- Posts Section -->
+        <section class="w-full md:w-2/3 flex flex-col px-3 space-y-4 prose">
+            <slot />
+        </section>
+    </div>
+</Base>

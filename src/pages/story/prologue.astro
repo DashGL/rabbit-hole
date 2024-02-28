@@ -1,5 +1,5 @@
 ---
-import Base from "@layouts/Base.astro";
+import Story from "@layouts/Story.astro";
 const images: string[] = [];
 for (let i = 0; i < 19; i++) {
     const num = (i + 1).toString().padStart(2, "0");
@@ -7,78 +7,62 @@ for (let i = 0; i < 19; i++) {
 }
 ---
 
-<Base>
-    <div class="max-w-screen-xl mx-auto flex flex-wrap py-6">
-        <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
-            <ul class="steps steps-vertical">
-                <li class="step step-primary">Register</li>
-                <li class="step step-primary">Choose plan</li>
-                <li class="step">Purchase</li>
-                <li class="step">Receive Product</li>
-            </ul>
-        </aside>
-        <!-- Posts Section -->
-        <section class="w-full md:w-2/3 flex flex-col px-3 space-y-4 prose">
-            <h1>Pulled into the Digital World</h1>
-            <p>
-                This sequence of events covers what happens before Kion is
-                pulled into the digital world. He works a normal shift with a
-                few customers coming in right before closing, but kion manages
-                to keep a smile while serving the last customer.
-            </p>
-            <p>
-                Kion's friend and coworker asks him if we wants to play League
-                of Waifus after work, something they do often. Kion declines
-                saying that he wants to work on his game. This is mostly a lie
-                as while kion has a bunch of ideas for games he would like to
-                make, he has no idea how to actually approach the task. And
-                while he has a sketchbook full of a few doodles, it's become a
-                little bit of a joke for people to say they want to see it.
-            </p>
-            <p>
-                After work Kion pulls back into his apartment. He's 19 years old
-                and instead of going to university like most of his classmates
-                he ended up staying home and getting a parttime job. He didn't
-                have horrible grades, but they weren't great either and he
-                didn't feel like he could commit to education when he wasn't
-                sure of what he wanted to do. He ended up getting a parttime job
-                and an apartment, and most of his paycheck goes to rent.
-            </p>
-            <p>
-                Kion gets home, puts down his keys and throws his work clothes
-                in the washing machine and takes a shower. He changes into
-                shorts and a T-shirt, and stops by his computer to turn it on.
-                And eats a cup of noodles before shifting over to the living
-                room to watch some TV before realizing that time had gotten away
-                from him.
-            </p>
-            <p>
-                He goes to sit down in front of the computer. His mind is blank.
-                It seems like his mind is full of ideas and creativity up until
-                the point he sits down at his desk at which point he completely
-                forgets what he wants to do. "What game again?", "Where do I
-                start"? It's already late at night, and it's getting cold. Kion
-                makes a cup of tea and puts on a hoodie and sits down at his
-                desk again.
-            </p>
-            <p>
-                "Focus", he tells himself as he tries to open a text editor to
-                figure out what to do before getting drowsy and falls asleep on
-                his keyboard. A few hours later he wakes up realizing there is
-                drool all over his keyboard. His monitor is flickering and
-                making a static noise. "Oh my god", Kion cries out as he doesn't
-                have a great computer, but he doesn't have a lot of money to
-                replace it either.
-            </p>
-            <p>
-                As he scrambles to grab his drink and some tissues and start
-                wiping up the keyboard, the monitor starts to move and shake as
-                the keyboard rattles on the desk. Kion's body starts to pixelize
-                and be sucked into the monitor as his hand stops being physical,
-                the cup he was holding falls and shatters on the ground as he
-                falls head first into the Digi-World.
-            </p>
-            {images.map((src) => <img src={src} />)}
-        </section>
-    </div>
-</Base>
+<Story>
+    <h1>Pulled into the Digital World</h1>
+    <p>
+        This sequence of events covers what happens before Kion is pulled into
+        the digital world. He works a normal shift with a few customers coming
+        in right before closing, but kion manages to keep a smile while serving
+        the last customer.
+    </p>
+    <p>
+        Kion's friend and coworker asks him if we wants to play League of Waifus
+        after work, something they do often. Kion declines saying that he wants
+        to work on his game. This is mostly a lie as while kion has a bunch of
+        ideas for games he would like to make, he has no idea how to actually
+        approach the task. And while he has a sketchbook full of a few doodles,
+        it's become a little bit of a joke for people to say they want to see
+        it.
+    </p>
+    <p>
+        After work Kion pulls back into his apartment. He's 19 years old and
+        instead of going to university like most of his classmates he ended up
+        staying home and getting a parttime job. He didn't have horrible grades,
+        but they weren't great either and he didn't feel like he could commit to
+        education when he wasn't sure of what he wanted to do. He ended up
+        getting a parttime job and an apartment, and most of his paycheck goes
+        to rent.
+    </p>
+    <p>
+        Kion gets home, puts down his keys and throws his work clothes in the
+        washing machine and takes a shower. He changes into shorts and a
+        T-shirt, and stops by his computer to turn it on. And eats a cup of
+        noodles before shifting over to the living room to watch some TV before
+        realizing that time had gotten away from him.
+    </p>
+    <p>
+        He goes to sit down in front of the computer. His mind is blank. It
+        seems like his mind is full of ideas and creativity up until the point
+        he sits down at his desk at which point he completely forgets what he
+        wants to do. "What game again?", "Where do I start"? It's already late
+        at night, and it's getting cold. Kion makes a cup of tea and puts on a
+        hoodie and sits down at his desk again.
+    </p>
+    <p>
+        "Focus", he tells himself as he tries to open a text editor to figure
+        out what to do before getting drowsy and falls asleep on his keyboard. A
+        few hours later he wakes up realizing there is drool all over his
+        keyboard. His monitor is flickering and making a static noise. "Oh my
+        god", Kion cries out as he doesn't have a great computer, but he doesn't
+        have a lot of money to replace it either.
+    </p>
+    <p>
+        As he scrambles to grab his drink and some tissues and start wiping up
+        the keyboard, the monitor starts to move and shake as the keyboard
+        rattles on the desk. Kion's body starts to pixelize and be sucked into
+        the monitor as his hand stops being physical, the cup he was holding
+        falls and shatters on the ground as he falls head first into the
+        Digi-World.
+    </p>
+    {images.map((src) => <img src={src} />)}
+</Story>

@@ -1,105 +1,89 @@
 ---
-import Base from "@layouts/Base.astro";
+import Story from "@layouts/Story.astro";
 import { Image } from "astro:assets";
 import scene from "@assets/scenes/T0_End.jpeg";
 import Dashie from "@components/Dashie.astro";
 import Kion from "@components/Kion.astro";
 ---
 
-<Base>
-    <div class="max-w-screen-xl mx-auto flex flex-wrap py-6">
-        <aside class="w-full md:w-1/3 flex flex-col items-center px-3">
-            <ul class="steps steps-vertical">
-                <li class="step step-primary">Register</li>
-                <li class="step step-primary">Choose plan</li>
-                <li class="step">Purchase</li>
-                <li class="step">Receive Product</li>
-            </ul>
-        </aside>
-        <!-- Posts Section -->
-        <section class="w-full md:w-2/3 flex flex-col px-3 space-y-4 prose">
-            <Image
-                class="rounded-lg"
-                src={scene}
-                alt="Kion falls into the Digital World"
-            />
-            <h1>Falling Down the Rabbit Hole</h1>
-            <p>
-                Kion screams as he falls down, landing with a thud. The impact
-                of the fall surprised him as his brain tries to comprehend
-                what's going on. He finds himself in a dark cave barely
-                illuminated by crystals and mushrooms scattered across the floor
-                and walls. The air felt thick like being in an old library full
-                of dusty books.
-            </p>
-            <p>
-                Still recovering from the shock of the fall, Kion hears a
-                mysterious sound: "Fufufufu". The quiet laughter echoed through
-                the cavern. The sound continued to grow and get closer. A dark
-                shadow darted between mushrooms as it grew closer to Kion. Kion
-                started to panic, he was still on the ground unable to stand
-                after the fall. Kion started to try and crawl away from what
-                ever was approaching him. The shadow darted and dissappeared as
-                suddenly a figure appeared in front of him and bent down in
-                front of his face. "Sup weeeeeb" the shadow cries as Kion sees
-                its face.
-            </p>
+<Story>
+    <Image
+        class="rounded-lg"
+        src={scene}
+        alt="Kion falls into the Digital World"
+    />
+    <h1>Falling Down the Rabbit Hole</h1>
+    <p>
+        Kion screams as he falls down, landing with a thud. The impact of the
+        fall surprised him as his brain tries to comprehend what's going on. He
+        finds himself in a dark cave barely illuminated by crystals and
+        mushrooms scattered across the floor and walls. The air felt thick like
+        being in an old library full of dusty books.
+    </p>
+    <p>
+        Still recovering from the shock of the fall, Kion hears a mysterious
+        sound: "Fufufufu". The quiet laughter echoed through the cavern. The
+        sound continued to grow and get closer. A dark shadow darted between
+        mushrooms as it grew closer to Kion. Kion started to panic, he was still
+        on the ground unable to stand after the fall. Kion started to try and
+        crawl away from what ever was approaching him. The shadow darted and
+        dissappeared as suddenly a figure appeared in front of him and bent down
+        in front of his face. "Sup weeeeeb" the shadow cries as Kion sees its
+        face.
+    </p>
 
-            <img
-                class="rounded-lg"
-                src={`${import.meta.env.BASE_URL}/storyboard/nagatoro-sup-weeb.jpg`}
-            />
+    <img
+        class="rounded-lg"
+        src={`${import.meta.env.BASE_URL}/storyboard/nagatoro-sup-weeb.jpg`}
+    />
 
-            <p>
-                A small rabbit loomed in front of Kion. "What is that!!?" Kion
-                cried as his legs suddenly started working from the adrenaline.
-                He scrambled back away from the figure. "Fufufu, you've met a
-                cruel fate" the shadow says as it steps into the the light
-                revealing its figure. <Kion>I'm dead!!??</Kion>, Kion screams as
-                the meaning of the line sank in. <Dashie>
-                    No, I mean it looked like that hurt, my name's Dashie. Are
-                    you okay?
-                </Dashie>, as Kion finally gets a good look at the figure.
-            </p>
+    <p>
+        A small rabbit loomed in front of Kion. "What is that!!?" Kion cried as
+        his legs suddenly started working from the adrenaline. He scrambled back
+        away from the figure. "Fufufu, you've met a cruel fate" the shadow says
+        as it steps into the the light revealing its figure. <Kion>
+            I'm dead!!??
+        </Kion>, Kion screams as the meaning of the line sank in. <Dashie>
+            No, I mean it looked like that hurt, my name's Dashie. Are you okay?
+        </Dashie>, as Kion finally gets a good look at the figure.
+    </p>
 
-            <p>
-                Kion's heart stops for a moment as the situation he's in becomes
-                even more disconnected from reality. <Kion>
-                    A talking rabbit!!?? I really must be dead.
-                </Kion> Kion holds his head in hands before starting to cry as he
-                sobs on the floor. Dashie walks over to Kion and says, <Dashie>
-                    Calm down weeb, it's not that bad. Maybe I can help you.
-                </Dashie>. Kion's face full of tears turns back to look at
-                Dashie, <Kion>How do I get out of here?</Kion>, he asks.
-            </p>
-            <img
-                class="rounded-lg"
-                src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d472741f-7a1a-4970-a978-2512497e3207/de0rsan-3b7aa5fd-a507-4351-a857-4e2fcce41575.png/v1/fill/w_1024,h_541,q_80,strp/please_don_t_bully_me_nagatoro__face_of_evil_by_ioriuchiha_de0rsan-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTQxIiwicGF0aCI6IlwvZlwvZDQ3Mjc0MWYtN2ExYS00OTcwLWE5NzgtMjUxMjQ5N2UzMjA3XC9kZTByc2FuLTNiN2FhNWZkLWE1MDctNDM1MS1hODU3LTRlMmZjY2U0MTU3NS5wbmciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.Fc1_elD24a6yn0c1-1YRqzgbY9kvivX7IiP2yKWDBqs"
-            />
-            <p>
-                Dashie puts her hand on her chin, and looks thoughtful. <Dashie>
-                    Out... ? Hmmmmm....
-                </Dashie>, she quietly ponders outloud for a moment before
-                pounding on of her fist on the other. <Dashie>
-                    You want out right, I think I can get you outta here weeb.
-                </Dashie>, she says as a creepy grin spreads across her face.
-                Kion is a little taken aback by her expression but doesn't know
-                what to make of it and nods out of despiration and a lack of
-                other options.
-            </p>
-            <p>
-                <Dashie>All right!</Dashie> chimes Dashie. <Dashie>
-                    This is where I live, so I've never been out of here. But I
-                    think I have an idea of how to get of here. Let's go weeb.
-                </Dashie>. Kion stops crying long enough to get back on his
-                feet.
-                <Kion>Right, thanks and my name's Kion by the way.</Kion>, he
-                says as he reaches out his hand for a handshake. Dashie
-                completely ignores him and starts marching towards a tunnel
-                coming out the side of the room. <Dashie>
-                    Let's go weeb!
-                </Dashie>, she says as she points in the direction she's headed.
-            </p>
-        </section>
-    </div>
-</Base>
+    <p>
+        Kion's heart stops for a moment as the situation he's in becomes even
+        more disconnected from reality. <Kion>
+            A talking rabbit!!?? I really must be dead.
+        </Kion> Kion holds his head in hands before starting to cry as he sobs on
+        the floor. Dashie walks over to Kion and says, <Dashie>
+            Calm down weeb, it's not that bad. Maybe I can help you.
+        </Dashie>. Kion's face full of tears turns back to look at Dashie, <Kion
+        >
+            How do I get out of here?
+        </Kion>, he asks.
+    </p>
+    <img
+        class="rounded-lg"
+        src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d472741f-7a1a-4970-a978-2512497e3207/de0rsan-3b7aa5fd-a507-4351-a857-4e2fcce41575.png/v1/fill/w_1024,h_541,q_80,strp/please_don_t_bully_me_nagatoro__face_of_evil_by_ioriuchiha_de0rsan-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTQxIiwicGF0aCI6IlwvZlwvZDQ3Mjc0MWYtN2ExYS00OTcwLWE5NzgtMjUxMjQ5N2UzMjA3XC9kZTByc2FuLTNiN2FhNWZkLWE1MDctNDM1MS1hODU3LTRlMmZjY2U0MTU3NS5wbmciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.Fc1_elD24a6yn0c1-1YRqzgbY9kvivX7IiP2yKWDBqs"
+    />
+    <p>
+        Dashie puts her hand on her chin, and looks thoughtful. <Dashie>
+            Out... ? Hmmmmm....
+        </Dashie>, she quietly ponders outloud for a moment before pounding on
+        of her fist on the other. <Dashie>
+            You want out right, I think I can get you outta here weeb.
+        </Dashie>, she says as a creepy grin spreads across her face. Kion is a
+        little taken aback by her expression but doesn't know what to make of it
+        and nods out of despiration and a lack of other options.
+    </p>
+    <p>
+        <Dashie>All right!</Dashie> chimes Dashie. <Dashie>
+            This is where I live, so I've never been out of here. But I think I
+            have an idea of how to get of here. Let's go weeb.
+        </Dashie>. Kion stops crying long enough to get back on his feet.
+        <Kion>Right, thanks and my name's Kion by the way.</Kion>, he says as he
+        reaches out his hand for a handshake. Dashie completely ignores him and
+        starts marching towards a tunnel coming out the side of the room. <Dashie
+        >
+            Let's go weeb!
+        </Dashie>, she says as she points in the direction she's headed.
+    </p>
+</Story>
