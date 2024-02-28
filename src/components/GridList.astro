@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
+import Link from "@components/Link.astro";
 const posts = (await getCollection("blog")).sort(
     (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
 );
@@ -16,17 +17,18 @@ console.log(posts);
         posts.map((post) => (
             <div class="card w-96 bg-base-100 shadow-lg mx-auto">
                 <figure>
-                    <Image src={post.data.thumbnail} alt="something"/>
+                    <Image src={post.data.thumbnail} alt="something" />
                 </figure>
                 <div class="card-body">
                     <h2 class="card-title">{post.data.title}</h2>
                     <p>{post.data.description}</p>
                     <div class="card-actions justify-end">
-                        <a href={`${import.meta.env.BASE_URL}/blog`} class="btn btn-primary">Read Now</a>
+                        <Link href="/blog/article">
+                            <span class="btn btn-primary">Read Now</span>
+                        </Link>
                     </div>
                 </div>
             </div>
         ))
     }
-
 </ul>
