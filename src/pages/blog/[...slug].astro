@@ -14,32 +14,91 @@ export async function getStaticPaths() {
 import sample from "@assets/sample/my-journey-to-build-daisyui.jpg";
 type Props = CollectionEntry<"blog">;
 const post = Astro.props;
-const { Content, headings} = await post.render();
-
+const { Content, headings } = await post.render();
 ---
 
 <Base>
     <div class="mx-auto w-full max-w-2xl">
-        <div class="prose prose-sm md:prose-base mx-auto">
-            <figure class="w-full">
-                <Image class="rounded-lg" src={post.data.heroImage} alt="" />
-            </figure>
-            <div>
-                <div class="text-base-content/60 mb-2 text-xs">
-                    <span title="4 Oct 2023" class="italic"
-                        >Published 4 months ago</span
-                    > by
-                    <span>Kion</span>
-                </div>
-                <h1>
-                    {post.data.title}
-                </h1>
-                <p>
-                    {post.data.description}
-                </p>
+        <article class="flex xl:space-x-12">
+            <!-- Main area -->
+            <div class="min-w-0">
+                <div class="prose prose-sm md:prose-base mx-auto">
+                    <figure class="w-full">
+                        <Image
+                            class="rounded-lg"
+                            src={post.data.heroImage}
+                            alt=""
+                        />
+                    </figure>
+                    <div>
+                        <div class="text-base-content/60 mb-2 text-xs">
+                            <span title="4 Oct 2023" class="italic"
+                                >Published 4 months ago</span
+                            > by
+                            <span>Kion</span>
+                        </div>
+                        <h1>
+                            {post.data.title}
+                        </h1>
+                        <p>
+                            {post.data.description}
+                        </p>
 
-                <Content />
+                        <Content />
+                    </div>
+                </div>
             </div>
-        </div>
+
+            <!-- Secondary navigation -->
+            <nav class="hidden xl:block w-48 shrink-0">
+                <div
+                    class="fixed bottom-0 h-[calc(100vh-5rem)] w-48 overflow-y-auto pt-20 pb-8 no-scrollbar"
+                >
+                    <div
+                        class="border-l border-slate-200 dark:border-slate-800"
+                    >
+                        <div
+                            class="text-xs font-[650] text-slate-400 uppercase pl-4 py-1.5 dark:text-slate-200"
+                        >
+                            On this page
+                        </div>
+                        <ul class="text-sm">
+                            <li>
+                                <!-- The data-scrollspy-link attribute makes the scrollspy work -->
+                                <a
+                                    data-scrollspy-link=""
+                                    class="relative block font-normal text-slate-600 pl-4 py-1.5 before:absolute before:-left-px before:top-2 before:bottom-2 before:w-0.5 scrollspy-active"
+                                    href="#basics">The basics</a
+                                >
+                            </li>
+                            <li>
+                                <!-- The data-scrollspy-link attribute makes the scrollspy work -->
+                                <a
+                                    data-scrollspy-link=""
+                                    class="relative block font-normal text-slate-600 pl-4 py-1.5 before:absolute before:-left-px before:top-2 before:bottom-2 before:w-0.5"
+                                    href="#api-structure">API structure</a
+                                >
+                            </li>
+                            <li>
+                                <!-- The data-scrollspy-link attribute makes the scrollspy work -->
+                                <a
+                                    data-scrollspy-link=""
+                                    class="relative block font-normal text-slate-600 pl-4 py-1.5 before:absolute before:-left-px before:top-2 before:bottom-2 before:w-0.5"
+                                    href="#connect-api">Connecting to the API</a
+                                >
+                            </li>
+                            <li>
+                                <!-- The data-scrollspy-link attribute makes the scrollspy work -->
+                                <a
+                                    data-scrollspy-link=""
+                                    class="relative block font-normal text-slate-600 pl-4 py-1.5 before:absolute before:-left-px before:top-2 before:bottom-2 before:w-0.5"
+                                    href="#api-limits">API limits</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </article>
     </div>
 </Base>
