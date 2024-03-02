@@ -1,0 +1,110 @@
+---
+import Story from "@layouts/Story.astro";
+import { Image } from "astro:assets";
+
+import placeholder from "@assets/scenes/placeholder.png";
+
+import Dashie from "@components/Dashie.astro";
+import Kion from "@components/Kion.astro";
+---
+
+<Story>
+    <Image
+        class="rounded-lg"
+        src={placeholder}
+        alt="Kion falls into the Digital World"
+    />
+    <h1>Snake</h1>
+
+    <h2>Story</h2>
+    <p>
+        Dashie: <Dashie>This is my line</Dashie>
+    </p>
+    <p>
+        Kion: <Kion>This is my line</Kion>
+    </p>
+
+    <h2>Concept</h2>
+    <Image
+        class="rounded-lg"
+        src={placeholder}
+        alt="Title screen for brickout game with SDL on linux"
+    />
+
+    <h2>Program</h2>
+
+    <ol>
+        <li>
+            <strong>Setting Up Your Development Environment</strong>
+            <ul>
+                <li>Install necessary tools (SDL, OpenGL, etc.).</li>
+                <li>Set up a project directory.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Creating a Window with SDL</strong>
+            <ul>
+                <li>Initialize SDL.</li>
+                <li>Create a window and renderer.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Setting Up OpenGL for 2D Rendering</strong>
+            <ul>
+                <li>Initialize OpenGL context.</li>
+                <li>Set up viewport and projection.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Loading Game Assets</strong>
+            <ul>
+                <li>Load images for the snake, food, and background.</li>
+                <li>Set up texture loading with SDL.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Creating the Title Screen</strong>
+            <ul>
+                <li>Display a title graphic.</li>
+                <li>Implement a start button.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Implementing the Game Loop</strong>
+            <ul>
+                <li>Handle user input (arrow keys for movement).</li>
+                <li>Update the snake's position.</li>
+                <li>Check for collisions (with walls and food).</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Rendering the Game</strong>
+            <ul>
+                <li>Render the snake and food.</li>
+                <li>Draw the game area background.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Adding Game Logic</strong>
+            <ul>
+                <li>Manage the snake's growth and movement.</li>
+                <li>Generate new food when eaten.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Creating Success and Game Over Screens</strong>
+            <ul>
+                <li>Detect when the snake hits a wall or itself.</li>
+                <li>Display a game over message with score.</li>
+                <li>Implement a restart button.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Cleaning Up and Exiting</strong>
+            <ul>
+                <li>Free resources and close SDL.</li>
+                <li>Provide an option to quit the game.</li>
+            </ul>
+        </li>
+    </ol>
+</Story>
