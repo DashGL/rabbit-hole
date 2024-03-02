@@ -25,14 +25,17 @@ const creator = "@kion_dgl";
 <html lang="en">
     <head>
         <!-- favicon -->
-        <link rel="shortcut icon" href="/favicon.svg" />
+        <link
+            rel="shortcut icon"
+            href={`${import.meta.env.BASE_URL}/favicon.svg`}
+        />
         <meta name="generator" content={Astro.generator} />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
         <!-- responsive meta -->
         <meta
             name="viewport"
-            content="width=device-width, initial-scale=1, maximum-scale=5"
+            content="width=device-width, initial-scale=1, maximum-scale=1"
         />
 
         <!-- HTML Meta -->
@@ -59,8 +62,9 @@ const creator = "@kion_dgl";
 
         <script is:inline src="/registerSW.js"></script>
         <link rel="manifest" href="/manifest.webmanifest" />
-        <ViewTransitions />
         <link rel="sitemap" href="/sitemap-index.xml" />
+
+        <ViewTransitions />
     </head>
     <body>
         <Drawer />
