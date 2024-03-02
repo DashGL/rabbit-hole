@@ -1,0 +1,115 @@
+---
+import Story from "@layouts/Story.astro";
+import { Image } from "astro:assets";
+
+import placeholder from "@assets/scenes/placeholder.png";
+
+import Dashie from "@components/Dashie.astro";
+import Kion from "@components/Kion.astro";
+---
+
+<Story>
+    <Image
+        class="rounded-lg"
+        src={placeholder}
+        alt="Kion falls into the Digital World"
+    />
+    <h1>Tetris</h1>
+
+    <h2>Story</h2>
+    <p>
+        Dashie: <Dashie>This is my line</Dashie>
+    </p>
+    <p>
+        Kion: <Kion>This is my line</Kion>
+    </p>
+
+    <h2>Concept</h2>
+    <Image
+        class="rounded-lg"
+        src={placeholder}
+        alt="Title screen for brickout game with SDL on linux"
+    />
+
+    <h2>Program</h2>
+
+    <ol>
+        <li>
+            <strong>Loading Game Assets</strong>
+            <ul>
+                <li>Load images for the tetrominoes and background.</li>
+                <li>Set up texture loading with SDL.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Creating the Title Screen</strong>
+            <ul>
+                <li>Display a title graphic.</li>
+                <li>Implement a start button.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Implementing the Game Loop</strong>
+            <ul>
+                <li>Handle user input (arrow keys for movement).</li>
+                <li>Update the tetromino's position.</li>
+                <li>
+                    Check for collisions (with walls and other tetrominoes).
+                </li>
+                <li>Update the game board with tetromino positions.</li>
+                <li>Manage the game board and clearing lines.</li>
+                <li>Render the game board and tetrominoes.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Handling Tetromino Movement</strong>
+            <ul>
+                <li>Move tetromino down automatically at regular intervals.</li>
+                <li>Speed up tetromino movement as the game progresses.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Handling Tetromino Rotation</strong>
+            <ul>
+                <li>Rotate tetromino clockwise or counterclockwise.</li>
+                <li>Check for collisions after rotation.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Generating New Tetrominoes</strong>
+            <ul>
+                <li>Randomly select and generate new tetrominoes.</li>
+                <li>
+                    Ensure tetrominoes spawn at the top center of the game
+                    board.
+                </li>
+            </ul>
+        </li>
+        <li>
+            <strong>Ending the Game</strong>
+            <ul>
+                <li>
+                    End the game when tetrominoes reach the top of the screen.
+                </li>
+                <li>Display a game over message.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Scoring</strong>
+            <ul>
+                <li>Keep track of and display the player's score.</li>
+                <li>Increment the score for each cleared line.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Creating Success Screen</strong>
+            <ul>
+                <li>
+                    Display a success message when a certain number of lines are
+                    cleared.
+                </li>
+                <li>Provide an option to restart the game.</li>
+            </ul>
+        </li>
+    </ol>
+</Story>

@@ -1,0 +1,35 @@
+---
+import Story from "@layouts/Story.astro";
+import { Image } from "astro:assets";
+
+import placeholder from "@assets/scenes/placeholder.png";
+
+import Dashie from "@components/Dashie.astro";
+import Kion from "@components/Kion.astro";
+---
+
+<Story>
+    <Image
+        class="rounded-lg"
+        src={placeholder}
+        alt="Kion falls into the Digital World"
+    />
+    <h1>Epilogue</h1>
+
+    <h2>Story</h2>
+    <p>
+        Dashie: <Dashie>This is my line</Dashie>
+    </p>
+    <p>
+        Kion: <Kion>This is my line</Kion>
+    </p>
+
+    <h2>Concept</h2>
+    <Image
+        class="rounded-lg"
+        src={placeholder}
+        alt="Title screen for brickout game with SDL on linux"
+    />
+
+    
+</Story>

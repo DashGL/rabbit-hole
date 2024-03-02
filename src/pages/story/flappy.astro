@@ -1,0 +1,112 @@
+---
+import Story from "@layouts/Story.astro";
+import { Image } from "astro:assets";
+
+import placeholder from "@assets/scenes/placeholder.png";
+
+import Dashie from "@components/Dashie.astro";
+import Kion from "@components/Kion.astro";
+---
+
+<Story>
+    <Image
+        class="rounded-lg"
+        src={placeholder}
+        alt="Kion falls into the Digital World"
+    />
+    <h1>Flappy Bird</h1>
+
+    <h2>Story</h2>
+    <p>
+        Dashie: <Dashie>This is my line</Dashie>
+    </p>
+    <p>
+        Kion: <Kion>This is my line</Kion>
+    </p>
+
+    <h2>Concept</h2>
+    <Image
+        class="rounded-lg"
+        src={placeholder}
+        alt="Title screen for brickout game with SDL on linux"
+    />
+
+    <h2>Program</h2>
+
+    <ol>
+        <li>
+            <strong>Loading Game Assets</strong>
+            <ul>
+                <li>Load images for the bird, pipes, and background.</li>
+                <li>Set up texture loading with SDL.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Creating the Title Screen</strong>
+            <ul>
+                <li>Display a title graphic.</li>
+                <li>Implement a start button.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Implementing the Game Loop</strong>
+            <ul>
+                <li>Handle user input (spacebar for bird jump).</li>
+                <li>
+                    Update the bird's position and velocity based on gravity and
+                    user input.
+                </li>
+                <li>Move pipes horizontally towards the bird.</li>
+                <li>
+                    Handle collision detection between the bird and pipes or
+                    ground.
+                </li>
+                <li>Render the bird, pipes, and background.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Handling Bird Movement</strong>
+            <ul>
+                <li>Move the bird upwards when the spacebar is pressed.</li>
+                <li>Apply gravity to the bird to simulate falling.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Implementing Pipe Movement</strong>
+            <ul>
+                <li>Move pipes from right to left towards the bird.</li>
+                <li>Randomly generate pipe heights.</li>
+                <li>Reposition pipes when they move off-screen.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Ending the Game</strong>
+            <ul>
+                <li>
+                    End the game when the bird collides with a pipe or the
+                    ground.
+                </li>
+                <li>Display a game over message.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Scoring</strong>
+            <ul>
+                <li>
+                    Keep track of and display the player's score (based on
+                    number of pipes passed).
+                </li>
+            </ul>
+        </li>
+        <li>
+            <strong>Creating Success Screen</strong>
+            <ul>
+                <li>
+                    Display a success message when the player achieves a certain
+                    score.
+                </li>
+                <li>Provide an option to restart the game.</li>
+            </ul>
+        </li>
+    </ol>
+</Story>

@@ -1,0 +1,122 @@
+---
+import Story from "@layouts/Story.astro";
+import { Image } from "astro:assets";
+
+import placeholder from "@assets/scenes/placeholder.png";
+
+import Dashie from "@components/Dashie.astro";
+import Kion from "@components/Kion.astro";
+---
+
+<Story>
+    <Image
+        class="rounded-lg"
+        src={placeholder}
+        alt="Kion falls into the Digital World"
+    />
+    <h1>Invaders</h1>
+
+    <h2>Story</h2>
+    <p>
+        Dashie: <Dashie>This is my line</Dashie>
+    </p>
+    <p>
+        Kion: <Kion>This is my line</Kion>
+    </p>
+
+    <h2>Concept</h2>
+    <Image
+        class="rounded-lg"
+        src={placeholder}
+        alt="Title screen for brickout game with SDL on linux"
+    />
+
+    <h2>Program</h2>
+
+    <ol>
+        <li>
+            <strong>Loading Game Assets</strong>
+            <ul>
+                <li>
+                    Load images for the player, enemies, bullets, and
+                    background.
+                </li>
+                <li>Set up texture loading with SDL.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Creating the Title Screen</strong>
+            <ul>
+                <li>Display a title graphic.</li>
+                <li>Implement a start button.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Implementing the Game Loop</strong>
+            <ul>
+                <li>
+                    Handle user input (arrow keys for movement, spacebar for
+                    shooting).
+                </li>
+                <li>Update the player's position.</li>
+                <li>
+                    Update the enemy positions and behavior (moving side to side
+                    and down).
+                </li>
+                <li>Handle collision detection between bullets and enemies.</li>
+                <li>
+                    Handle player's death when colliding with enemies or enemy
+                    bullets.
+                </li>
+                <li>Render the player, enemies, bullets, and background.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Handling Enemy Movement</strong>
+            <ul>
+                <li>Move enemies side to side within the game area.</li>
+                <li>Move enemies down when reaching the edge of the screen.</li>
+                <li>Speed up enemy movement as the game progresses.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Handling Player Movement</strong>
+            <ul>
+                <li>Move the player left and right within the game area.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Handling Player Shooting</strong>
+            <ul>
+                <li>Allow the player to shoot bullets upwards.</li>
+                <li>Create and manage a bullet pool to reuse bullets.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Ending the Game</strong>
+            <ul>
+                <li>
+                    End the game when all enemies are destroyed or the player is
+                    defeated.
+                </li>
+                <li>Display a game over message.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Scoring</strong>
+            <ul>
+                <li>Keep track of and display the player's score.</li>
+                <li>Increment the score for each enemy destroyed.</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Creating Success Screen</strong>
+            <ul>
+                <li>
+                    Display a success message when all enemies are destroyed.
+                </li>
+                <li>Provide an option to restart the game.</li>
+            </ul>
+        </li>
+    </ol>
+</Story>
