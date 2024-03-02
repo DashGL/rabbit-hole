@@ -40,11 +40,7 @@ const key = `/src/assets/${imagePath}`;
         <time class="font-mono italic">{chapter}</time>
         <div class="text-lg font-black">{title}</div>
         <Link href={link}>
-            <Image
-                src={images[key]!()}
-                class="rounded-lg"
-                alt="A bird sitting on a nest of eggs."
-            />
+            <Image src={images[key]!()} class="rounded-lg" alt={title} />
         </Link>
         {description}
     </div>
