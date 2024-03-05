@@ -3,7 +3,6 @@ title: Story Reference Device
 description: Trying to make a concept device that doesn't suck
 category: Hardware
 publishDate: 2024-02-26T06:18:32.801Z
-heroImage: /src/assets/blog/ref-device-mock.png
 thumbnail: /src/assets/thumbnails/hardware-ref.png
 ---
 

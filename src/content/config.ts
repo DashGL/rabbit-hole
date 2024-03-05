@@ -8,8 +8,7 @@ const blogCollection = defineCollection({
         title: z.string(),
         description: z.string(),
         publishDate: z.date(),
-        category: z.enum(['Hardware', 'Weebits']),
-        heroImage: image(),
+        category: z.enum(['Hardware', 'Weebits', 'Development']),
         thumbnail: image(),
     }),
 });
