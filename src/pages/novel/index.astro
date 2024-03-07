@@ -1,0 +1,51 @@
+---
+import Base from "@layouts/Base.astro";
+import { Image } from "astro:assets";
+import background from "@assets/background/living-room-day.png";
+import Textbox from "@components/Textbox.astro";
+---
+
+<Base>
+    <div
+        class="container mx-auto border-black border-2 relative my-8 rounded overflow-hidden"
+    >
+        <Image
+            src={background}
+            alt="Kion's apartment livingroom during the day"
+        />
+
+        <div
+            class="absolute left-[10%] w-4/5 bottom-5 h-52 z-10 border-white border-2 rounded-lg overflow-hidden"
+        >
+            <h3 class="absolute text-2xl text-white z-20 left-8 top-2">
+                Dashie
+            </h3>
+
+            <Textbox text="OMG could you be any more dense Kion?" />
+            <div
+                class="bg-gradient-to-r from-cyan-700 to-blue-700 w-full h-full opacity-70"
+            >
+            </div>
+        </div>
+    </div>
+    <script is:inline>
+        anime
+            .timeline({ loop: false })
+            .add({
+                targets: ".letter",
+                scale: [4, 1],
+                opacity: [0, 1],
+                translateZ: 0,
+                easing: "easeOutExpo",
+                duration: 950,
+                delay: (el, i) => 100 * i,
+            })
+            .add({
+                targets: ".ml2",
+                opacity: 0,
+                duration: 1000,
+                easing: "easeOutExpo",
+                delay: 1000,
+            });
+    </script>
+</Base>
