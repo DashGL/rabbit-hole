@@ -1,7 +1,7 @@
 ---
 import { type CollectionEntry, getCollection } from "astro:content";
 import { Image } from "astro:assets";
-import Base from "@layouts/Base.astro";
+import Page from "@layouts/Page.astro";
 import RelatedPosts from "@components/RelatedPosts.astro";
 
 export async function getStaticPaths() {
@@ -17,7 +17,7 @@ const post = Astro.props;
 const { Content, headings } = await post.render();
 ---
 
-<Base>
+<Page>
     <main class="pb-16 lg:pb-24 antialiased">
         <div
             class="flex relative z-20 justify-between p-6 mx-4 max-w-screen-xl xl:mx-auto prose"
@@ -309,4 +309,4 @@ const { Content, headings } = await post.render();
         </div>
     </main>
     <RelatedPosts />
-</Base>
+</Page>

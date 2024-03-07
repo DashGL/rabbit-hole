@@ -1,10 +1,10 @@
 ---
-import Base from "@layouts/Base.astro";
+import Page from "@layouts/Page.astro";
 import { Image } from "astro:assets";
 import splash from "@assets/splash.png";
 ---
 
-<Base>
+<Page>
     <!-- Theme Select -->
     <div class="max-w-screen-xl mx-auto">
         <Image class='mb-8 rounded-lg w-full' src={splash} alt="" />
@@ -1885,4 +1885,4 @@ import splash from "@assets/splash.png";
             });
         });
     </script>
-</Base>
+</Page>

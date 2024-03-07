@@ -1,5 +1,5 @@
 ---
-import Base from "@layouts/Base.astro";
+import Page from "@layouts/Page.astro";
 import Link from "@components/Link.astro";
 
 const steps = [
@@ -64,7 +64,7 @@ const prev = steps[index - 1];
 const next = steps[index + 1];
 ---
 
-<Base>
+<Page>
     <div class="max-w-screen-xl mx-auto flex flex-wrap py-6">
         <aside class="w-full md:w-1/3 flex-col items-center px-3 hidden md:flex">
             <ul class="steps steps-vertical">
@@ -140,4 +140,4 @@ const next = steps[index + 1];
             </div>
         </section>
     </div>
-</Base>
+</Page>

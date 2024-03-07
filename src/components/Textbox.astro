@@ -1,0 +1,17 @@
+---
+export interface Props {
+    text: string;
+}
+
+const { text } = Astro.props;
+const words = text.split(" ");
+---
+
+<p
+    class="absolute text-xl text-white z-20 left-8 top-14"
+    style="width: calc(100% - 4rem)"
+>
+{
+    words.map( (word) => (<span class="letter me-1">{word}</span>))
+}
+</p>
