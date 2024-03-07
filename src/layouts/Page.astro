@@ -1,0 +1,18 @@
+---
+import Base from "@layouts/Base.astro";
+import Navbar from "@components/Navbar.astro";
+import Drawer from "@components/Drawer.astro";
+import Footer from "@components/Footer.astro";
+---
+
+<Base>
+    <Drawer />
+    <Navbar />
+    <article class="py-8">
+        <slot />
+    </article>
+
+    <Footer />
+
+    <Base />
+</Base>
