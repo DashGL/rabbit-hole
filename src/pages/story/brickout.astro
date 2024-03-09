@@ -2,6 +2,7 @@
 import Story from "@layouts/Story.astro";
 import { Image } from "astro:assets";
 import scene from "@assets/scenes/T1_Start.jpeg";
+import end from "@assets/scenes/T1_End.jpeg";
 
 import title from "@assets/scenes/brickout-title.png";
 import game from "@assets/scenes/brickout-game.png";
@@ -21,7 +22,7 @@ import Kion from "@components/Kion.astro";
     />
     <h1>Brickout</h1>
 
-    <h2>Story</h2>
+    <h2>Introduction</h2>
     <p>
         Dashie: <Dashie>Where did this come from?</Dashie>
     </p>
@@ -138,4 +139,12 @@ import Kion from "@components/Kion.astro";
         Thoroughly testing the game on the Raspberry Pi. Preparing the game for
         distribution and deployment.
     </p>
+
+    <h2>Conclusion</h2>
+
+    <Image
+        class="rounded-lg"
+        src={end}
+        alt="Kion falls into the Digital World"
+    />
 </Story>

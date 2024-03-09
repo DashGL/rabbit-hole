@@ -2,6 +2,9 @@
 import Story from "@layouts/Story.astro";
 import { Image } from "astro:assets";
 import scene from "@assets/scenes/T0_End.jpeg";
+import openWindow from "@assets/scenes/open-window.png";
+import blueTriangle from "@assets/scenes/blue-triangle.png";
+import hype from "@assets/scenes/vgen_kion.png";
 import Dashie from "@components/Dashie.astro";
 import Kion from "@components/Kion.astro";
 ---
@@ -85,5 +88,65 @@ import Kion from "@components/Kion.astro";
         >
             Let's go weeb!
         </Dashie>, she says as she points in the direction she's headed.
+    </p>
+    <h2>Program</h2>
+
+    <p>
+        This point in the story is meant to parallel which set of programs to
+        use. There are any number of other options that Kion could use, such as
+        C++, Python, or even Unity or Godot.
+    </p>
+
+    <p>
+        In this respect Dashie is leading Kion through a rabbit hole that she is
+        familiar with by passing by any number of other paths that could be
+        taken. Dashie eventually leads to the way "out", which is blocked by a
+        wall of Bricks.
+    </p>
+
+    <Image
+        class="rounded-lg"
+        src={hype}
+        alt="Kion falls into the Digital World"
+    />
+
+    <p>
+        This is where Dashie needs to get Kion oriented with his latent ability
+        in the digital world. Kion is able to summon a terminal in front of him,
+        and a keyboard on his arm, similar to a duel disk. It is here where Kion
+        will need to get familiar with the basics of building and deploying in
+        order to meet the challenges that will come up in the digital world.
+    </p>
+    <Image
+        src={openWindow}
+        alt="Open a Window with SDL on Linux with Raspberry Pi"
+    />
+    <p>
+        In terms of the mechanics of building and deploying, we have a computer
+        dedicated for building and testing. And then a separate target device
+        which will play the game once deployed to. This is a place where we can
+        potentially use the blue triangle example as a way to create a window,
+        create an OpenGL context, draw the triangle, set up orthangonal
+        coordinates, and finally exiting once we detect a specific input.
+    </p>
+
+    <Image
+        src={blueTriangle}
+        alt="Initilize open gl and draw a basic shape"
+    />
+
+    <p>
+        If we throw in the ability to load a sprint, that would mean that we
+        would only need to focus on game logic for each following step. Because
+        each tutorial following this will start from this point, it's possible
+        that we could add an obstacle into the underground section as a small
+        introduction as a frame of reference for Kion to start his journey. Alternatively
+        we can add this into the Brickout tutorial, and reduce the game logic there.
+    </p>
+    <p>
+        Or we can say that the first three steps of the Brickout tutorial are part of
+        the forward. That way we could transition from using `fragColor` to define
+        colors to loading sprites once part of the game logic for collision is 
+        working. 
     </p>
 </Story>
