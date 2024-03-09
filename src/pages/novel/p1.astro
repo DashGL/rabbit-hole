@@ -18,39 +18,39 @@ import Link from "@components/Link.astro";
         <div
             class="absolute left-[10%] w-4/5 bottom-5 h-52 z-10 border-white border-2 rounded-lg overflow-hidden"
         >
-            <h3 class="absolute text-2xl text-white z-20 left-8 top-2">
-                Dashie
-            </h3>
+            <h3 class="absolute text-2xl text-white z-20 left-8 top-2">Kion</h3>
 
-            <Textbox text="OMG could you be any more dense Kion?" />
+            <Textbox text="Hey cut it out Dashie" />
             <div
                 class="bg-gradient-to-r from-cyan-700 to-blue-700 w-full h-full opacity-70"
             >
             </div>
-            <Link href="/novel/p1">
+            <Link href="/novel/p2">
                 <button class="btn glass absolute right-4 bottom-4">Next</button
                 >
             </Link>
         </div>
     </div>
     <script is:inline>
-        anime
-            .timeline({ loop: false })
-            .add({
-                targets: ".letter",
-                scale: [4, 1],
-                opacity: [0, 1],
-                translateZ: 0,
-                easing: "easeOutExpo",
-                duration: 950,
-                delay: (el, i) => 100 * i,
-            })
-            .add({
-                targets: ".ml2",
-                opacity: 0,
-                duration: 1000,
-                easing: "easeOutExpo",
-                delay: 1000,
-            });
+        document.addEventListener("astro:page-load", () => {
+            anime
+                .timeline({ loop: false })
+                .add({
+                    targets: ".letter",
+                    scale: [4, 1],
+                    opacity: [0, 1],
+                    translateZ: 0,
+                    easing: "easeOutExpo",
+                    duration: 950,
+                    delay: (el, i) => 100 * i,
+                })
+                .add({
+                    targets: ".ml2",
+                    opacity: 0,
+                    duration: 1000,
+                    easing: "easeOutExpo",
+                    delay: 1000,
+                });
+        });
     </script>
 </Base>
