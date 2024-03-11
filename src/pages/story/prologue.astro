@@ -1,7 +1,7 @@
 ---
 import Story from "@layouts/Story.astro";
 const images: string[] = [];
-for (let i = 0; i < 19; i++) {
+for (let i = 0; i < 20; i++) {
     const num = (i + 1).toString().padStart(2, "0");
     images.push(`${import.meta.env.BASE_URL}/storyboard/s0_${num}.png`);
 }
@@ -10,19 +10,18 @@ for (let i = 0; i < 19; i++) {
 <Story>
     <h1>Pulled into the Digital World</h1>
 
-    <img src={images[0]} />
-    <img src={images[1]} />
-    <img src={images[2]} />
-    <img src={images[3]} />
     <p>
         This sequence of events covers what happens before Kion is pulled into
         the digital world. He works a normal shift with a few customers coming
         in right before closing, but kion manages to keep a smile while serving
         the last customer.
     </p>
-    <img src={images[4]} />
-    <img src={images[5]} />
-    <img src={images[6]} />
+
+    <img src={images[0]} />
+    <img src={images[1]} />
+    <img src={images[2]} />
+    <img src={images[3]} />
+
     <p>
         Kion's friend and coworker asks him if we wants to play League of Waifus
         after work, something they do often. Kion declines saying that he wants
@@ -32,8 +31,17 @@ for (let i = 0; i < 19; i++) {
         it's become a little bit of a joke for people to say they want to see
         it.
     </p>
+
+    <img src={images[4]} />
+    <img src={images[5]} />
+    <img src={images[6]} />
     <img src={images[7]} />
+
+    <p>
+        A bebe
+    </p>
     <img src={images[8]} />
+    <img src={images[9]} />
    
     <p>
         After work Kion pulls back into his apartment. He's 19 years old and
@@ -44,9 +52,9 @@ for (let i = 0; i < 19; i++) {
         getting a parttime job and an apartment, and most of his paycheck goes
         to rent.
     </p>
-    <img src={images[9]} />
     <img src={images[10]} />
     <img src={images[11]} />
+    <img src={images[12]} />
     <p>
         Kion gets home, puts down his keys and throws his work clothes in the
         washing machine and takes a shower. He changes into shorts and a
@@ -54,9 +62,9 @@ for (let i = 0; i < 19; i++) {
         noodles before shifting over to the living room to watch some TV before
         realizing that time had gotten away from him.
     </p>
-    <img src={images[12]} />
     <img src={images[13]} />
     <img src={images[14]} />
+    <img src={images[15]} />
     <p>
         He goes to sit down in front of the computer. His mind is blank. It
         seems like his mind is full of ideas and creativity up until the point
@@ -65,7 +73,7 @@ for (let i = 0; i < 19; i++) {
         at night, and it's getting cold. Kion makes a cup of tea and puts on a
         hoodie and sits down at his desk again.
     </p>
-    <img src={images[15]} />
+    <img src={images[16]} />
     <p>
         "Focus", he tells himself as he tries to open a text editor to figure
         out what to do before getting drowsy and falls asleep on his keyboard. A
@@ -74,8 +82,8 @@ for (let i = 0; i < 19; i++) {
         god", Kion cries out as he doesn't have a great computer, but he doesn't
         have a lot of money to replace it either.
     </p>
-    <img src={images[16]} />
     <img src={images[17]} />
+    <img src={images[18]} />
     <p>
         As he scrambles to grab his drink and some tissues and start wiping up
         the keyboard, the monitor starts to move and shake as the keyboard
@@ -84,5 +92,5 @@ for (let i = 0; i < 19; i++) {
         falls and shatters on the ground as he falls head first into the
         Digi-World.
     </p>
-    <img src={images[18]} />
+    <img src={images[19]} />
 </Story>
