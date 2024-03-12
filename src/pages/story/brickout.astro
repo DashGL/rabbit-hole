@@ -14,7 +14,7 @@ import Dashie from "@components/Dashie.astro";
 import Kion from "@components/Kion.astro";
 
 const images: string[] = [];
-for (let i = 0; i < 12; i++) {
+for (let i = 0; i < 14; i++) {
     const num = i.toString().padStart(2, "0");
     images.push(`${import.meta.env.BASE_URL}/storyboard/BreakOut-${num}.png`);
 }
@@ -128,29 +128,26 @@ for (let i = 0; i < 12; i++) {
         Detecting when the player has no lives left. Displaying a game over
         screen and allowing the player to restart.
     </p>
-    <h3>Step 11: Adding Power-Ups (Optional)</h3>
+    <h3>Step 11: Adding Power-Ups</h3>
     <img src={images[10]}/>
     <p>
         Implementing power-up items that enhance gameplay. Modifying paddle,
         ball, or brick behavior with power-ups.
     </p>
-    <h3>Step 12: Creating a Success Screen (Optional)</h3>
+    <h3>Step 12: Creating a Success Screen</h3>
     <img src={images[11]}/>
     <p>
         Designing a success screen for when the player completes all levels.
         Allowing the player to restart or return to the title screen.
     </p>
-    <h3>Step 13: Sound and Music (Optional)</h3>
+    <h3>Step 13: Sound and Music</h3>
+    <img src={images[12]}/>
     <p>
         Integrating sound effects and background music to enhance the gaming
         experience. Implementing audio control for different game events.
     </p>
-    <h3>Step 14: Optimizing for Raspberry Pi</h3>
-    <p>
-        Making performance optimizations to ensure smooth gameplay on the
-        Raspberry Pi. Adjusting the display resolution and other settings.
-    </p>
-    <h3>Step 15: Final Testing and Deployment</h3>
+    <h3>Step 14: Final Testing and Deployment</h3>
+    <img src={images[13]}/>
     <p>
         Thoroughly testing the game on the Raspberry Pi. Preparing the game for
         distribution and deployment.
