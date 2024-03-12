@@ -3,6 +3,8 @@ import Story from "@layouts/Story.astro";
 import { Image } from "astro:assets";
 
 import placeholder from "@assets/scenes/placeholder.png";
+import start from "@assets/scenes/T2_Start.jpeg";
+import end from "@assets/scenes/T2_End.jpeg";
 
 import Dashie from "@components/Dashie.astro";
 import Kion from "@components/Kion.astro";
@@ -11,7 +13,7 @@ import Kion from "@components/Kion.astro";
 <Story>
     <Image
         class="rounded-lg"
-        src={placeholder}
+        src={start}
         alt="Kion falls into the Digital World"
     />
     <h1>Snake</h1>
@@ -107,4 +109,10 @@ import Kion from "@components/Kion.astro";
             </ul>
         </li>
     </ol>
+
+    <Image
+        class="rounded-lg"
+        src={end}
+        alt="Kion falls into the Digital World"
+    />
 </Story>
