@@ -8,6 +8,12 @@ import end from "@assets/scenes/T2_End.jpeg";
 
 import Dashie from "@components/Dashie.astro";
 import Kion from "@components/Kion.astro";
+
+const images: string[] = [];
+for (let i = 0; i < 11; i++) {
+    const num = (i+1).toString().padStart(2, "0");
+    images.push(`${import.meta.env.BASE_URL}/storyboard/Snake-${num}.png`);
+}
 ---
 
 <Story>
@@ -38,6 +44,7 @@ import Kion from "@components/Kion.astro";
     <ol>
         <li>
             <strong>Setting Up Your Development Environment</strong>
+            <img src={images[0]}/>
             <ul>
                 <li>Install necessary tools (SDL, OpenGL, etc.).</li>
                 <li>Set up a project directory.</li>
@@ -45,6 +52,7 @@ import Kion from "@components/Kion.astro";
         </li>
         <li>
             <strong>Creating a Window with SDL</strong>
+            <img src={images[1]}/>
             <ul>
                 <li>Initialize SDL.</li>
                 <li>Create a window and renderer.</li>
@@ -52,6 +60,7 @@ import Kion from "@components/Kion.astro";
         </li>
         <li>
             <strong>Setting Up OpenGL for 2D Rendering</strong>
+            <img src={images[3]}/>
             <ul>
                 <li>Initialize OpenGL context.</li>
                 <li>Set up viewport and projection.</li>
@@ -59,6 +68,7 @@ import Kion from "@components/Kion.astro";
         </li>
         <li>
             <strong>Loading Game Assets</strong>
+            <img src={images[4]}/>
             <ul>
                 <li>Load images for the snake, food, and background.</li>
                 <li>Set up texture loading with SDL.</li>
@@ -66,6 +76,7 @@ import Kion from "@components/Kion.astro";
         </li>
         <li>
             <strong>Creating the Title Screen</strong>
+            <img src={images[5]}/>
             <ul>
                 <li>Display a title graphic.</li>
                 <li>Implement a start button.</li>
@@ -73,6 +84,7 @@ import Kion from "@components/Kion.astro";
         </li>
         <li>
             <strong>Implementing the Game Loop</strong>
+            <img src={images[6]}/>
             <ul>
                 <li>Handle user input (arrow keys for movement).</li>
                 <li>Update the snake's position.</li>
@@ -81,6 +93,7 @@ import Kion from "@components/Kion.astro";
         </li>
         <li>
             <strong>Rendering the Game</strong>
+            <img src={images[7]}/>
             <ul>
                 <li>Render the snake and food.</li>
                 <li>Draw the game area background.</li>
@@ -88,6 +101,7 @@ import Kion from "@components/Kion.astro";
         </li>
         <li>
             <strong>Adding Game Logic</strong>
+            <img src={images[8]}/>
             <ul>
                 <li>Manage the snake's growth and movement.</li>
                 <li>Generate new food when eaten.</li>
@@ -95,6 +109,7 @@ import Kion from "@components/Kion.astro";
         </li>
         <li>
             <strong>Creating Success and Game Over Screens</strong>
+            <img src={images[9]}/>
             <ul>
                 <li>Detect when the snake hits a wall or itself.</li>
                 <li>Display a game over message with score.</li>
@@ -103,6 +118,7 @@ import Kion from "@components/Kion.astro";
         </li>
         <li>
             <strong>Cleaning Up and Exiting</strong>
+            <img src={images[10]}/>
             <ul>
                 <li>Free resources and close SDL.</li>
                 <li>Provide an option to quit the game.</li>
