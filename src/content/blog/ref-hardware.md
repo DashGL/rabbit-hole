@@ -51,11 +51,13 @@ We would also want to check that it works on these devices. Criteria is the corr
 - Ambernic RG35XX
 - Ambernic 353M
 - [Miyoo Mini Plus](https://www.aliexpress.com/item/1005005215387485.html)
+- Miyoo Flip
 - [PiBoy XRS](https://www.experimentalpi.com/PiBoy-XRS_p_59.html)
 - [PiBoy Mini](https://www.experimentalpi.com/PiBoy-Mini_p_73.html)
 - [GPi CASE 2W](https://retroflag.com/gpi_case_2w.html)
 - [GPi CASE 2](https://retroflag.com/gpi_case_2.html)
 - SteamDeck
+- PS Vita(?)
 
 Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
 
