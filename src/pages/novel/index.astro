@@ -1,27 +1,29 @@
 ---
 import Base from "@layouts/Base.astro";
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
+import dashie from '@assets/dashie/facepalm.png'
+import kion from '@assets/kion/Annoyed.png'
 import background from "@assets/background/living-room-day.png";
 import Textbox from "@components/Textbox.astro";
 import Link from "@components/Link.astro";
+
+const optimizedBackgroundImage = await getImage({ src: background });
 ---
 
 <Base>
-    <div
-        class="container mx-auto border-black border-2 relative my-8 rounded overflow-hidden"
+    <main
+        style={`background: url('${optimizedBackgroundImage.src}') no-repeat center center; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;`}
+        class="absolute left-0 top-0 w-screen h-screen"
     >
-        <Image
-            src={background}
-            alt="Kion's apartment livingroom during the day"
-        />
-
+        <Image src={dashie} alt="dashie" class="absolute left-10 h-[90%] w-auto bottom-0"/>
+        <Image src={kion} alt="kion" class="absolute right-10 h-[60%] w-auto bottom-0"/>
         <div
             class="absolute left-[10%] w-4/5 bottom-5 h-52 z-10 border-white border-2 rounded-lg overflow-hidden"
         >
             <h3 class="absolute text-2xl text-white z-20 left-8 top-2">
                 Dashie
             </h3>
-
+            
             <Textbox text="OMG could you be any more dense Kion?" />
             <div
                 class="bg-gradient-to-r from-cyan-700 to-blue-700 w-full h-full opacity-70"
@@ -32,7 +34,7 @@ import Link from "@components/Link.astro";
                 >
             </Link>
         </div>
-    </div>
+    </main>
     <script is:inline>
         anime
             .timeline({ loop: false })
