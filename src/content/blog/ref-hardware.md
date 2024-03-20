@@ -52,6 +52,7 @@ We would also want to check that it works on these devices. Criteria is the corr
 - Ambernic 353M
 - [Miyoo Mini Plus](https://www.aliexpress.com/item/1005005215387485.html)
 - Miyoo Flip
+- Miyoo A30
 - [PiBoy XRS](https://www.experimentalpi.com/PiBoy-XRS_p_59.html)
 - [PiBoy Mini](https://www.experimentalpi.com/PiBoy-Mini_p_73.html)
 - [GPi CASE 2W](https://retroflag.com/gpi_case_2w.html)
