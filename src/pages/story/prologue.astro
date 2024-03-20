@@ -1,5 +1,6 @@
 ---
 import Story from "@layouts/Story.astro";
+import Label from "@components/Label.astro";
 const images: string[] = [];
 for (let i = 0; i < 20; i++) {
     const num = (i + 1).toString().padStart(2, "0");
@@ -9,20 +10,29 @@ for (let i = 0; i < 20; i++) {
 
 <Story>
     <h1>Pulled into the Digital World</h1>
-
-    <p>
+    <Label
+        name="Scene 01"
+        location="McWeebies (inside)"
+        time="night"
+        characters={["Kion", "Meme Driven", "Laika"]}
+    >
         This sequence of events covers what happens before Kion is pulled into
         the digital world. He works a normal shift with a few customers coming
         in right before closing, but kion manages to keep a smile while serving
         the last customer.
-    </p>
+    </Label>
 
     <img src={images[0]} />
     <img src={images[1]} />
     <img src={images[2]} />
     <img src={images[3]} />
 
-    <p>
+    <Label
+        name="Scene 02"
+        location="McWeebies (inside)"
+        time="night"
+        characters={["Kion", "Meme Driven"]}
+    >
         Kion's friend and coworker asks him if we wants to play League of Waifus
         after work, something they do often. Kion declines saying that he wants
         to work on his game. This is mostly a lie as while kion has a bunch of
@@ -30,67 +40,133 @@ for (let i = 0; i < 20; i++) {
         approach the task. And while he has a sketchbook full of a few doodles,
         it's become a little bit of a joke for people to say they want to see
         it.
-    </p>
+    </Label>
+
+    <p></p>
 
     <img src={images[4]} />
     <img src={images[5]} />
     <img src={images[6]} />
+
+    <Label
+        name="Scene 03"
+        location="McWeebies (parking lot)"
+        time="night"
+        characters={["Kion", "Meme Driven", "Ribby"]}
+    >
+        The staff all stand outside of McWeebies as they close up shop for the
+        night. They all wave to each other as they split off going to theri
+        separate cars.
+    </Label>
+
     <img src={images[7]} />
 
-    <p>
-        A bebe
-    </p>
+    <Label
+        name="Scene 04"
+        location="Kion's Apartment (outside)"
+        time="night"
+        characters={["Kion"]}
+    >
+        Kion pulls into his parking space for his apartment. He gets out of the
+        car and walks up the stairs to the floor of his apartment. He walks over
+        to his door to see a "Rent Overdue" notice taped to his door. He sighs
+        and opens the door to his apartment.
+    </Label>
+
     <img src={images[8]} />
     <img src={images[9]} />
-   
-    <p>
-        After work Kion pulls back into his apartment. He's 19 years old and
-        instead of going to university like most of his classmates he ended up
-        staying home and getting a parttime job. He didn't have horrible grades,
-        but they weren't great either and he didn't feel like he could commit to
+
+    <Label
+        name="Scene 05"
+        location="Kion's Apartment (inside)"
+        time="night"
+        characters={["Kion"]}
+    >
+        Kion lets himself into his apartment. He's 19 years old and instead of
+        going to university like most of his classmates he ended up staying home
+        and getting a parttime job. He didn't have horrible grades, but they
+        weren't great either and he didn't feel like he could commit to
         education when he wasn't sure of what he wanted to do. He ended up
         getting a parttime job and an apartment, and most of his paycheck goes
         to rent.
-    </p>
+        <br /><br />
+        He puts his keys and wallet next to the door in his apartment and heads to
+        the bathroom where he puts his clothes in the wash and takes a shower.
+    </Label>
+
     <img src={images[10]} />
     <img src={images[11]} />
     <img src={images[12]} />
-    <p>
-        Kion gets home, puts down his keys and throws his work clothes in the
-        washing machine and takes a shower. He changes into shorts and a
-        T-shirt, and stops by his computer to turn it on. And eats a cup of
-        noodles before shifting over to the living room to watch some TV before
-        realizing that time had gotten away from him.
-    </p>
-    <img src={images[13]} />
-    <img src={images[14]} />
-    <img src={images[15]} />
-    <p>
+    <Label
+        name="Scene 06"
+        location="Kion's Apartment (inside)"
+        time="night"
+        characters={["Kion"]}
+    >
         He goes to sit down in front of the computer. His mind is blank. It
         seems like his mind is full of ideas and creativity up until the point
         he sits down at his desk at which point he completely forgets what he
-        wants to do. "What game again?", "Where do I start"? It's already late
-        at night, and it's getting cold. Kion makes a cup of tea and puts on a
-        hoodie and sits down at his desk again.
-    </p>
+        wants to do. "What game again?", "Where do I start"?
+    </Label>
+    <img src={images[13]} />
+
+    <Label
+        name="Scene 07"
+        location="Kion's Apartment (inside)"
+        time="night"
+        characters={["Kion"]}
+    >
+        Kion gets distracted, he goes to make himself a cup of noodles and then
+        sits down to watch a few episodes of anime. He's about to turn on his
+        console to play League of Waifu's but he doesn't want to run into Meme
+        Driven, so he goes back to his computer.
+    </Label>
+
+    <img src={images[14]} />
+    <img src={images[15]} />
+
+    <Label
+        name="Scene 07"
+        location="Kion's Apartment (inside)"
+        time="night"
+        characters={["Kion"]}
+    >
+        It's already late at night, and it's getting cold. Kion makes a cup of
+        tea and puts on a hoodie and sits down at his desk again. "Focus", he
+        tells himself as he tries to open a text editor to figure out what to do
+        before getting drowsy and falls asleep on his keyboard.
+        <br /><br />
+        <b>Details: </b> Kion's notebook and a 'Weeboi' sitting on this desk
+    </Label>
+
     <img src={images[16]} />
-    <p>
-        "Focus", he tells himself as he tries to open a text editor to figure
-        out what to do before getting drowsy and falls asleep on his keyboard. A
-        few hours later he wakes up realizing there is drool all over his
+    <Label
+        name="Scene 08"
+        location="Kion's Apartment (inside)"
+        time="night"
+        characters={["Kion"]}
+    >
+        A few hours later he wakes up realizing there is drool all over his
         keyboard. His monitor is flickering and making a static noise. "Oh my
         god", Kion cries out as he doesn't have a great computer, but he doesn't
         have a lot of money to replace it either.
-    </p>
+    </Label>
+    <p></p>
     <img src={images[17]} />
     <img src={images[18]} />
-    <p>
+    <Label
+        name="Scene 09"
+        location="Kion's Apartment (inside)"
+        time="night"
+        characters={["Kion"]}
+    >
         As he scrambles to grab his drink and some tissues and start wiping up
         the keyboard, the monitor starts to move and shake as the keyboard
         rattles on the desk. Kion's body starts to pixelize and be sucked into
         the monitor as his hand stops being physical, the cup he was holding
         falls and shatters on the ground as he falls head first into the
         Digi-World.
-    </p>
+    </Label>
+
     <img src={images[19]} />
 </Story>
