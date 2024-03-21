@@ -6,15 +6,6 @@ publishDate: 2024-02-26T06:18:32.801Z
 thumbnail: /src/assets/thumbnails/hardware-ref.png
 ---
 
-## Table of Contents
-
-- Concept for device (which generation)
-- Design a "modern gameboy advance"
-- Hardware mock of the components (screen, input, battery, pi zero 2w)
-- Reference devices
-- Machine for developing
-- Package and deploy
-
 ## Concept device
 
 I think handhelds can roughly be broken down into five generations
