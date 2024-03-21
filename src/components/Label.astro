@@ -1,0 +1,20 @@
+---
+export interface Props {
+    name: string;
+    location: string;
+    time: string;
+    characters: string[];
+}
+
+const { name, location, time, characters } = Astro.props;
+---
+
+<div class="p-4 rounded bg-base-100 shadow-xl">
+    <h3 class="text-xl">{name}</h3>
+    <ul>
+        <li><b>Location:</b> {location}</li>
+        <li><b>Time:</b> {time}</li>
+        <li><b>Characters:</b> {characters.join(", ")}</li>
+    </ul>
+    <p><slot /></p>
+</div>
