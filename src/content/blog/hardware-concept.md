@@ -36,7 +36,7 @@ The three devices boil down to the following outlines
 
 ### Pro Version 
 
-![Weeboi Pro Concept](../../assets/thumbnails/advance-concept.png)
+![Weeboi Pro Concept](../../assets/thumbnails/pro-concept.png)
 
 - 5" 800 x 480 HDMI display
 - D-pad, A, B, X, Y, L, R, L Trigger, R Trigher, Start, Select, Left Analog, Right Analog, Home
@@ -54,8 +54,6 @@ As in that range of generation we have the Gameboy Advance, NDS, PSP. Where the
 Gameboy Advance is the closest device I want to emulate, but it doesn't have 4 face
 buttons. And while the DS and PSP have the d-pad, shoulder buttons and four face buttons,
 they also add mino tweaks into the equation.
-
-![DS Lite without a Screen](https://facelesstech.files.wordpress.com/2014/06/img_20140628_131615.jpg)
 
 Which is why there was the temptaton to include something small like a nub for a small
 inclusion that could be used for light 3d. And it's very tempting as that means the layout
