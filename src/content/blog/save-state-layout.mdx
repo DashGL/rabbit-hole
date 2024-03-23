@@ -5,6 +5,81 @@ category: Development
 publishDate: 2024-03-23T08:34:38.601Z
 thumbnail: /src/assets/thumbnails/placeholder.png
 ---
-  
+
+import Link from '@components/Link.astro'
+
 # Save State Layout
-> A funny or inspirational quote goes here.
+
+This is a continuiation of the <Link href="/blog/weeb-stack/">Building a Weeb Stack</Link> post. I'm trying to 
+find the right set of tools which makes deploying a static site for tools easier. So far this is the easiest
+set of tools that I've found.
+
+![Weeb Stack for building threejs tools](/src/assets/figs/Weeb-Stack.png)
+
+## Tooling
+
+For tooling, I've found that Bun, "just works". For `ts-node` I constantly run into the issues of ".ts file extension not recognized"
+And other weird issues. When I want to add or run tools or scripts for testing, I've started to reach for bun. I'm not quite sure about
+using it as a drop in replacement for Node yet. But at least on the testing and scripting side of things, it's been great to use.
+
+## Meta frameworks
+
+For a Meta Framework I've been mentally going back and forth between Vite and Astro, but ultimately I find myself coming back to
+Astro, and there are three reasons for that.
+
+### First Party Integrations
+
+The ability to run `npx astro add <some framework>` and have the ability to have Astro set up and configure everything is a great
+experience. I don't have to worry about strapping together something, or spending an hour searching for something. Astro is
+realiable in the sense that the team behind it makes sure everything works, and the community will raise bugs if needed.
+
+### HTML First and Stores
+
+The second part is the HTML first approach that Astro has, and that means that my code won't be infected with some framework
+from the start. What I mean is having the ability to build everything in HTML and CSS until I'm happy with how it looks and only
+then start to add functionality for one component at a time as needed using the island approach. And NanoStores allow for islands
+to talk to eachother without having to manage the whole parent-child state of all of the components in the application.
+
+### Familiarity
+
+I'm not sure how much of a dirty word this is, but I will fully acknowledge and embrase that familiarity plays a big role in the
+reason to choose Astro over other meta frameworks. Is that I can build tests and tools for Astro and be able to carry those around.
+The ability to copy and paste my GitHub deploy `.yml` file is great. Today I created a small script to add a new blog post file
+with the front-matter filled in instead of having to copy and page. And also I found out that [Knip](https://knip.dev/) is a thing
+in the sense of adding a CI that will go through and check for dead code on each pull requests. 
+
+## Styling
+
+For styling I've fallen in love with Tailwind. It's amazing to not have to switch back and forth to a CSS file. And for the complexity
+of what I work on, the list of class names that get added to any component has been pretty mandageable.
+
+This works really well with DaisyUI. Which I'm surprised that I like DaisyUI as much as I do. It's a component library with a
+quirkly look and not a lot of customizabilty. But what I find is that I like the look and don't need to customize it. And the
+benefit is that it comes with a ton of themes that just work, which is great to work with. But the best part about DaisyUI is 
+that it doesn't take a lot of code to work with any component. And a lot of the components work with CSS magic in the background
+which also reduces a lot of the code associated with doing anything. 
+
+## Threejs
+
+The last aspect of the stack to account for is the client side functionality. Threejs is a pretty hard requirement, as while it's
+not the only 3d library out there, it's the one I'm the most familiar with. And I would prefer to not have to spend the time
+to pick up another library as much as I enjoy playing with them. In my case threejs works in the sense of having a format to
+target and a method to display assets.
+
+The next question is what to use to build around the tools in terms of Threejs. And there are two options that I'm split between.
+The options are Qwik and React. In terms of Qwik, what I like is that it works well with Astro in terms of not having to mess
+with the `client:load` parameters in the sense that it's another thing that generally "just works". 
+
+What's kind of annoying is the separation with what runs on the server. In terms of statically generated site, I would prefer
+for everything to just run on the client. There's also the aspect of the javascript being split into tiny chunks that get's
+loaded on demand. Which is not something that I'm too concerned about in terms of deploying a small tool where that tiny amount
+of performance is not something that's going to be too much of a benefit.
+
+And then there's react which has the advantage of being able to use React Three Fiber. And it seems like this might be a preferable
+option to get a simple scene set up and pass meshes to it to be able to view them. The part that's concerning to me here is that
+i'm already familiar with the vanilla threejs syntax, so it seems kind of weird re-learning the same tool in a different syntax.
+And deploying react for a tiny site seems like killing an ant with a sledge hammer. There's preact, but that doesn't have 
+support for React Three Fiber, while there [does seem to be a proof of concept](https://twitter.com/Cody_J_Bennett/status/1632674026408558592).
+
+Otherwise in terms of working with the developer experience these two seem very similar in terms of using `.tsx`. I think it's worth
+taking a look at React Three Fiber and see if that's a reason to use React, otherwise Qwik seems like simplier option to use. 
