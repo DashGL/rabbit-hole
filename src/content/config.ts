@@ -1,5 +1,6 @@
 // 1. Import utilities from `astro:content`
 import { z, defineCollection } from 'astro:content';
+import { blogTypes } from '@content/blogTypes';
 
 // 2. Define a `type` and `schema` for each collection
 const blogCollection = defineCollection({
@@ -8,7 +9,7 @@ const blogCollection = defineCollection({
         title: z.string(),
         description: z.string(),
         publishDate: z.date(),
-        category: z.enum(['Hardware', 'Weebits', 'Development']),
+        category: z.enum(blogTypes),
         thumbnail: image(),
     }),
 });
