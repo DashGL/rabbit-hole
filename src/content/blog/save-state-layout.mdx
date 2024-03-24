@@ -83,3 +83,38 @@ support for React Three Fiber, while there [does seem to be a proof of concept](
 
 Otherwise in terms of working with the developer experience these two seem very similar in terms of using `.tsx`. I think it's worth
 taking a look at React Three Fiber and see if that's a reason to use React, otherwise Qwik seems like simplier option to use. 
+
+### Trying React Three Fiber
+
+After writing the paragraph above, I went back and tested React Three Fiber. And I guess I'm 
+alot more familiar with the `.tsx` syntax now, so I found it a lot more intuitve that I did before.
+
+![Basic set up with React Three Fiber](/src/assets/figs/r3f-init.png)
+
+What I'm amazed by is just how simple it makes it. I was able to set up everything I would normally need to write out
+by hand, with a few tags and didn't even have to write the events for updating to the window size.
+Being able to separate objects in the scenes by tags also makes it look like it's easier to swap out
+just the mesh instead of having to reset the whole scene. So it looks like react wins out in terms of 
+which client side library to use. 
+
+As a side note, the tool being referenced in this post is called "Horokko Loko" 
+and it can be found here: https://github.com/kion-dgl/Horokko-Loko.
+
+## Domains and where to put what
+
+One more aspect of my considerations for a weeb stack is where to put what. I 
+think it's easier to use the DashGL namespace, and then use subdomains for any given
+tool. What I've been pretty terrible about is the split of where to put what. I think 
+I'll be using `dashgl.com` and the DashGL organization on GitHub to host tutorials and 
+the main blog. And I can use `dashgl.org` and my personal `kion-dgl` name space as a place
+to put tools.
+
+The thing about tools is as much as I have some stupid idea about how I want to make something 
+cool. With reverse engineering, it's always uncertain about what i'll actually run into
+which means that I'll more than likely hit a wall, and need to make another side tool to
+investigate something in order to confirm it works. 
+
+What that basically means is that garbage is going to pile up, and I'd prefer to keep on of that 
+garbage on `kion-dgl` and keep the `dashgl` organization realtively clean. 
+For any tool that's notable enoguh to use, I can reference it from the organization profile
+page, or write a blog post about something in progress. 
