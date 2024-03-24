@@ -97,6 +97,29 @@ Being able to separate objects in the scenes by tags also makes it look like it'
 just the mesh instead of having to reset the whole scene. So it looks like react wins out in terms of 
 which client side library to use. 
 
+```typescript
+import { useRef } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { CameraControls } from '@react-three/drei';
+
+export default function App() {
+    const cameraControlRef = useRef<CameraControls | null>(null);
+
+    return (
+
+        <Canvas>
+            <CameraControls ref={cameraControlRef} />
+            <mesh>
+                <boxGeometry />
+                <meshBasicMaterial color={0xff0000}/>
+            </mesh>
+            <gridHelper args={[20, 20, 0xff0000, 'teal']} />
+        </Canvas>
+
+    );
+}
+```
+
 As a side note, the tool being referenced in this post is called "Horokko Loko" 
 and it can be found here: https://github.com/kion-dgl/Horokko-Loko.
 
