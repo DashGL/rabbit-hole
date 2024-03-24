@@ -55,13 +55,13 @@ thumbnail: /src/assets/thumbnails/placeholder.png
     if (newCategory) {
         const updatedBlogTypes = [...blogTypes, newCategory];
         fs.writeFileSync(
-            path.join(__dirname, 'src/content/blogTypes.ts'),
+            'src/content/blogTypes.ts',
             `export const blogTypes = ${JSON.stringify(updatedBlogTypes)} as const;`
         );
     }
 
     fs.writeFileSync(
-        path.join(__dirname, `src/content/blog/${name.toLowerCase().replace(/\s+/g, '-')}.mdx`),
+        `src/content/blog/${name.toLowerCase().replace(/\s+/g, '-')}.mdx`,
         content
     );
 
