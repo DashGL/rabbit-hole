@@ -1,0 +1,78 @@
+---
+title: Lite Hardware Concept
+description: Considering a Lite mode to narrow down a target device
+category: Hardware
+publishDate: 2024-03-24T23:39:58.491Z
+thumbnail: /src/assets/thumbnails/placeholder.png
+---
+import Link from '@components/Link.astro'
+
+## Lite Hardware concept
+
+In my <Link href='blog/hardware-concept/'>previous post</Link> I outlined three devices
+for `Lite`, `Advance` and `Pro`. For the story I've DashGL, I'm focused on the `Advance`
+concept. But I want to expand out and design what the `Lite` and `Pro` devices would
+look like, and then have something to align in between. Of the three, the `Lite` device
+has the lest amount of ambiguity, so it seems like the best place to start.
+
+## Reviewing the Specs
+
+- Screen
+  - 3.5” 480 x 320 SPI display
+  - 2.8” 480 x 320 SPI display
+  - 3.5” 320 x 240 SPI display
+  - 2.8” 320 x 240 SPI display
+- D-pad, A, B, Start, Select, Home
+- Mono Sound
+- Board
+  - Pi Pico
+  - Pi Zero
+
+The `Lite` concept is pretty much in the shape of a Gameboy Color, with the main difference
+on the hardware side being a home button in order to return to the menu. And an updated
+screen. Otherwise the general size and layout of the hardware would remain the same.
+
+In terms of display, I'm old as fuck, so 2.5 inches is kind of the minimum for me at this
+point. I think that 2.8" might fit into the original shell, so some adjustments might be
+made for people to not ruin their eyes. For resolution, I would also try for 480x320 in 
+a 4:3 ratio, for a Pi Zero reference. But for Pi Pico, the size might need to be reduced to 
+something smaller like 320x240. 
+
+## Software experience
+
+For the software experience, I would want to emulate the experience of programming for the
+Gameboy Color, by keeping it clunky and trying to force the programmer to understand the
+underlying hardware without making the experience too clunky. I think that as a baseboard
+the Pi Pico would make an interesting device for this purpose. Or otherwise the Pi Zero
+and an SPI display with writing to the framebuffer would also be a possibility.
+
+Instead of providing libraries to extract away the abstractions, in DashGL style we could
+force the user to derive their own library and learn a set of underlying concepts along
+the way. 
+
+## Reference Projects
+
+### ReBoi
+
+https://www.kickstarter.com/projects/jameth/reboi-raspberry-pi-in-a-gameboy
+
+## This post
+
+http://gijin77.blog.jp/archives/35893338.html
+
+## Development Hardware 
+
+The hardest part for me on this is getting the breadboad buttons to
+work, so anything I can find in terms of a kit. Would be preferable.
+
+### Pi Pico
+- Pi Pico
+- Buttons
+- Screen
+- Battery
+
+### Pi Zero 
+- Pi Board
+- Nes Controller
+- Screen
+- Battery
