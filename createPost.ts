@@ -1,6 +1,5 @@
 import inquirer from 'inquirer';
 import fs from 'fs';
-import path from 'path';
 import { blogTypes } from './src/content/blogTypes';
 
 type Answers = {
