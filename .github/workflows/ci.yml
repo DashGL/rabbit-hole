@@ -1,25 +1,27 @@
-name: CI
+name: Astro CI
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
-  build:
+  build-and-check:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
-    - name: Set up Node.js
+    - name: Setup Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '20'
+        node-version: '20' # Node.js version updated to 20
 
-    - name: Install Dependencies
+    - name: Install dependencies
       run: npm install
-    - name: Run Astro Check
+      
+    - name: Check with Astro
       run: npx astro check
-    - name: Run Astro Build
+      
+    - name: Build with Astro
       run: npx astro build
-    - name: Run Knip
+      
+    - name: Check for unused dependencies
       run: npx knip
