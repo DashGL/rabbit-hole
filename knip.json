@@ -9,6 +9,9 @@
         ".jsx",
         ".tsx"
     ],
+    "ignoreDependencies": [
+        "@iconify-json/mdi"
+    ],
     "ignorePatterns": [
         "**/node_modules/**"
     ],
