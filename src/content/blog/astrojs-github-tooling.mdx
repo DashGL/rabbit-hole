@@ -1,0 +1,319 @@
+---
+title: Astrojs GitHub Tooling
+description: Re-usable scrips and workflows for AstroJs
+category: Development
+publishDate: 2024-03-25T13:03:11.068Z
+thumbnail: /src/assets/thumbnails/placeholder.png
+---
+  
+## Astrojs GitHub Tooling
+
+Even through Vite is probably more than enough for most of my client side
+tools, one of the advantages of Astrojs is the ability to snowball tools.
+Where any tooling I find works in one project can be applied to another
+project. This is a quick overview of the few simple tricks I've found so
+far to be able to copy and paste them into any other project. 
+
+## GitHub Page
+
+First one is to deploy to GitHub pages. Which is included in the 
+[AstroJs Documentation](https://docs.astro.build/en/guides/deploy/github/).
+
+First step is to create a workflow file at the location `.github/workflows/cd.yml`.
+Fill it with the following content:
+
+```yml
+name: Deploy to GitHub Pages
+
+on:
+  # Trigger the workflow every time you push to the `main` branch
+  # Using a different branch name? Replace `main` with your branch’s name
+  push:
+    branches: [ main ]
+  # Allows you to run this workflow manually from the Actions tab on GitHub.
+  workflow_dispatch:
+
+# Allow this job to clone the repo and create a page deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v4
+      - name: Install, build, and upload your site
+        uses: withastro/action@v2
+        # with:
+          # path: . # The root location of your Astro project inside the repository. (optional)
+          # node-version: 20 # The specific version of Node that should be used to build your site. Defaults to 20. (optional)
+          # package-manager: pnpm@latest # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+```
+
+With GitHub pages, it's likely going to be deployed to a page under your namespace,
+to develop there before adding a custom domain name. This will be need to be
+updated in the `astro.config.mjs` file.
+
+```javascript
+export default defineConfig({
+  site: 'https://dashgl.github.io',
+  base: '/rabbit-hole',
+  integrations: [tailwind(), icon(), sitemap(), robotsTxt(), mdx()]
+});
+```
+
+And then it also makes sense to make a `Link` component that will Automatically
+wrap links with the correct `href`. I don't know if Astro provides their own 
+component for this, but hopefully they will if they don't already.
+
+```typescript
+---
+export interface Props {
+    href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<a href={`${import.meta.env.BASE_URL}${href}`}><slot /></a>
+```
+
+## Status Checks
+
+Once a site is being deployed to GitHub, it's a good idea to make
+sure that deployment is going to keep working on every Pull Request.
+The two obvious checks are `npx astro check` and `npx astro build`
+to make sure that deployment is going to work. But I also found out
+that [Knip](https://knip.dev/) is a thing to look for ununsed references
+to keep your code base from getting overrun with junk.
+
+You can install it with `npm i -D knip`, and run it with `npx knip`. The
+defaults should work, but you can put a `knip.json` file in the base of the repository
+if you need to adjust anything. 
+
+```json 
+{
+    "roots": [
+        "src"
+    ],
+    "extensions": [
+        ".astro",
+        ".js",
+        ".ts",
+        ".jsx",
+        ".tsx"
+    ],
+    "ignoreDependencies": [
+        "@iconify-json/mdi"
+    ],
+    "ignorePatterns": [
+        "**/node_modules/**"
+    ],
+    "entryPoints": [
+        "src/pages/**/*.astro"
+    ],
+    "alias": {
+        "@components": "./src/components",
+        "@layouts": "./src/layouts"
+    }
+}
+```
+
+A workflow file can be created at `.github/workflows/cd.yml`
+to check each all of these on a pull request to main. Though 
+admittedly I haven't figured out how to force a Pull Request to
+pass these checks before being merged. The Action doesn't show
+up in the list of Status Checks when creating a ruleset. 
+
+```yml
+name: Astro CI
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20' # Node.js version updated to 20
+
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Check with Astro
+      run: npx astro check
+      
+    - name: Build with Astro
+      run: npx astro build
+      
+    - name: Check for unused dependencies
+      run: npx knip
+```
+
+I would love it if AstroJs had something pre-defined in their documentation.
+
+## Create a New Blog Post
+
+This one is pretty hacky, but then again what isn't. I've been finding
+that writing blog posts is a good way to save scrum though random side projects
+(kind of like saving at a typewriter in Resident Evil). One of the hard parts
+of side projects is working on it, and then coming back to it the next week end
+completely forgetting what you wrote before. 
+
+With AstroJs, while the main content of the applicant might be single page, it
+doesn't hurt to add notes, and integrating those notes into the deployment in more
+intuitive that writing a bunch of readmes or using the wiki. As you can use the 
+stream of consciouness approach to write, where you're at, what can be done next, 
+and what possible problems might occur. This way your brain can sort through them
+and you can be more productive the next chance you have to sit down.
+
+I've found that making a script to quickly create a new post makes it a lot easier to 
+make a new post, then having to go back and copy and chnage a previous post.
+
+### Disclaimer
+
+Note there are possible approaches for this, which are going to be more supported
+alternatives to this post.  
+- `astro-md-generator`
+- `frontmatter-cms`
+
+If you're continuing to read this, it's assuming you've either tried these and want
+a custom approach for how to do this, or you're me. 
+
+### New Post script
+
+When creating a new post, we generally want to choose from a fixed list of categories
+so we're not mispelling a category, or randomly creating one-off new categories without
+thinking about it. To enforce that we're consciously managing categories, we want to 
+create a file with an enum of the categoes we want. We can put this in `/src/content/blogTypes.ts`.
+
+```typescript
+export const blogTypes = ['Hardware', 'Development'] as const
+```
+
+Then in our `/src/content/config.ts` file we can reference this when defining our shcema.
+
+```typescript
+// 1. Import utilities from `astro:content`
+import { z, defineCollection } from 'astro:content';
+import { blogTypes } from '@content/blogTypes';
+
+// 2. Define a `type` and `schema` for each collection
+const blogCollection = defineCollection({
+    type: 'content', // v2.5.0 and later
+    schema: ({ image }) => z.object({
+        title: z.string(),
+        description: z.string(),
+        publishDate: z.date(),
+        category: z.enum(blogTypes),
+        thumbnail: image(),
+    }),
+});
+
+// 3. Export a single `collections` object to register your collection(s)
+export const collections = {
+    'blog': blogCollection,
+};
+```
+
+Next we want to create a simple CLI that will create a new post from a prompt.
+We want the prompt to ask for stuff like, the title of the post, a description, 
+and then ask for us to select an existing category or to create a new category.
+Once all three of these are complete, we want the script to create the new 
+file with the front matter already populated so we can start writing. 
+
+I'm named this script `createPost.ts`, and I added an entry into `package.json`
+in order to be able to call it with `npm run post`, which will call `npx tsx createPost.ts`.
+
+**Note: This script WILL write files to your system, so make sure you check to make
+sure the file paths work with your repository before using it**. 
+
+```typescript
+import inquirer from 'inquirer';
+import fs from 'fs';
+import { blogTypes } from './src/content/blogTypes';
+
+type Answers = {
+    name: string;
+    description: string;
+    category: string;
+    newCategory?: string;
+};
+
+const questions = [
+    {
+        type: 'input',
+        name: 'name',
+        message: "What's the name of the post?",
+    },
+    {
+        type: 'input',
+        name: 'description',
+        message: "What's the description of the post?",
+    },
+    {
+        type: 'list',
+        name: 'category',
+        message: 'Select the category of the post:',
+        choices: [...blogTypes, 'Add New'],
+    },
+    {
+        type: 'input',
+        name: 'newCategory',
+        message: "Enter the new category:",
+        when: (answers: Answers) => answers.category === 'Add New',
+    },
+];
+
+console.log("Hello, let's make a new post ^_^");
+
+inquirer.prompt(questions).then((answers: Answers) => {
+    const { name, description, category, newCategory } = answers;
+    const selectedCategory = category === 'Add New' ? newCategory! : category;
+    const publishDate = new Date().toISOString();
+    const content = `---
+title: ${name}
+description: ${description}
+category: ${selectedCategory}
+publishDate: ${publishDate}
+thumbnail: /src/assets/thumbnails/placeholder.png
+---
+  
+# ${name}
+> A funny or inspirational quote goes here.`;
+
+    if (newCategory) {
+        const updatedBlogTypes = [...blogTypes, newCategory];
+        fs.writeFileSync(
+            'src/content/blogTypes.ts',
+            `export const blogTypes = ${JSON.stringify(updatedBlogTypes)} as const;`
+        );
+    }
+
+    fs.writeFileSync(
+        `src/content/blog/${name.toLowerCase().replace(/\s+/g, '-')}.mdx`,
+        content
+    );
+
+    console.log('Post created successfully!');
+});
+```
