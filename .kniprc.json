@@ -1,0 +1,22 @@
+{
+    "roots": [
+        "src"
+    ],
+    "extensions": [
+        ".astro",
+        ".js",
+        ".ts",
+        ".jsx",
+        ".tsx"
+    ],
+    "ignorePatterns": [
+        "**/node_modules/**"
+    ],
+    "entryPoints": [
+        "src/pages/**/*.astro"
+    ],
+    "alias": {
+        "@components": "./src/components",
+        "@layouts": "./src/layouts"
+    }
+}
