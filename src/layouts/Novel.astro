@@ -1,0 +1,129 @@
+---
+import Base from "@layouts/Base.astro";
+import Textbox from "@components/Textbox.astro";
+import { Image, getImage } from "astro:assets";
+import Link from "@components/Link.astro";
+
+export interface Props {
+    background: string;
+    kion?: string;
+    dashie?: string;
+    speaker: string;
+    text: string;
+}
+
+const { background, kion, dashie, speaker, text } = Astro.props;
+
+const backgroundImages = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/background/*",
+);
+const backgroundImage =
+    backgroundImages[`/src/assets/background/${background}.png`];
+const optimizedBackgroundImage = await getImage({ src: backgroundImage!() });
+
+const kionImages = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/kion/*",
+);
+const kionExpression = kionImages[`/src/assets/kion/${kion}.png`];
+
+const dashieImages = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/dashie/*",
+);
+const dashieExpression = dashieImages[`/src/assets/dashie/${dashie}.png`];
+---
+
+<Base>
+    <div class="drawer">
+        <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content">
+            <main class="w-screen h-screen">
+                <!-- Page content here -->
+                <label
+                    for="my-drawer"
+                    class="btn btn-primary drawer-button absolute z-10 left-5 top-5"
+                    >Open drawer</label
+                >
+
+                <main
+                    style={[
+                        `background: url('${optimizedBackgroundImage.src}') no-repeat center center;`,
+                        "-webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover; background-size: cover;",
+                        "width: calc(100% - 10px); height: calc(100% - 210px); right: 5px; top: 5px;",
+                    ].join(" ")}
+                    class="absolute rounded-xl"
+                >
+                    {
+                        dashieExpression && (
+                            <Image
+                                src={dashieExpression()}
+                                alt="dashie"
+                                class="absolute left-10 h-[90%] w-auto bottom-0"
+                            />
+                        )
+                    }
+                    {
+                        kionExpression && (
+                            <Image
+                                src={kionExpression()}
+                                alt="kion"
+                                class="absolute right-10 h-[60%] w-auto bottom-0"
+                            />
+                        )
+                    }
+                </main>
+                <div
+                    style="width: calc(80% - 4px); height: 190px; bottom: 5px; left: 10%;"
+                    class="absolute right-0 bottom-0 z-10 border-white border-2 rounded-lg overflow-hidden"
+                >
+                    <h3 class="absolute text-2xl text-white z-20 left-8 top-2">
+                        {speaker}
+                    </h3>
+
+                    <Textbox text={text} />
+                    
+                    <div
+                        class="bg-gradient-to-r from-cyan-700 to-blue-700 w-full h-full opacity-70"
+                    >
+                    </div>
+                    <Link href="/novel/p1">
+                        <button class="btn glass absolute right-4 bottom-4"
+                            >Next</button
+                        >
+                    </Link>
+                </div>
+            </main>
+        </div>
+        <div class="drawer-side z-30">
+            <label
+                for="my-drawer"
+                aria-label="close sidebar"
+                class="drawer-overlay"></label>
+            <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
+                <!-- Sidebar content here -->
+                <li><a>Sidebar Item 1</a></li>
+                <li><a>Sidebar Item 2</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script is:inline>
+        anime
+            .timeline({ loop: false })
+            .add({
+                targets: ".letter",
+                scale: [4, 1],
+                opacity: [0, 1],
+                translateZ: 0,
+                easing: "easeOutExpo",
+                duration: 950,
+                delay: (el, i) => 100 * i,
+            })
+            .add({
+                targets: ".ml2",
+                opacity: 0,
+                duration: 1000,
+                easing: "easeOutExpo",
+                delay: 1000,
+            });
+    </script>
+</Base>
