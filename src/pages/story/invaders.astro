@@ -6,6 +6,12 @@ import placeholder from "@assets/scenes/placeholder.png";
 
 import Dashie from "@components/Dashie.astro";
 import Kion from "@components/Kion.astro";
+
+const images: string[] = [];
+for (let i = 0; i < 12; i++) {
+    const num = i.toString().padStart(2, "0");
+    images.push(`${import.meta.env.BASE_URL}/storyboard/invaders-${num}.png`);
+}
 ---
 
 <Story>
@@ -36,6 +42,7 @@ import Kion from "@components/Kion.astro";
     <ol>
         <li>
             <strong>Loading Game Assets</strong>
+            <img src={images[0]}/>
             <ul>
                 <li>
                     Load images for the player, enemies, bullets, and
@@ -46,6 +53,7 @@ import Kion from "@components/Kion.astro";
         </li>
         <li>
             <strong>Creating the Title Screen</strong>
+            <img src={images[1]}/>
             <ul>
                 <li>Display a title graphic.</li>
                 <li>Implement a start button.</li>
@@ -53,6 +61,11 @@ import Kion from "@components/Kion.astro";
         </li>
         <li>
             <strong>Implementing the Game Loop</strong>
+            <img src={images[2]}/>
+            <img src={images[3]}/>
+            <img src={images[4]}/>
+            <img src={images[5]}/>
+           
             <ul>
                 <li>
                     Handle user input (arrow keys for movement, spacebar for
@@ -73,6 +86,7 @@ import Kion from "@components/Kion.astro";
         </li>
         <li>
             <strong>Handling Enemy Movement</strong>
+            <img src={images[6]}/>
             <ul>
                 <li>Move enemies side to side within the game area.</li>
                 <li>Move enemies down when reaching the edge of the screen.</li>
@@ -81,12 +95,14 @@ import Kion from "@components/Kion.astro";
         </li>
         <li>
             <strong>Handling Player Movement</strong>
+            <img src={images[7]}/>
             <ul>
                 <li>Move the player left and right within the game area.</li>
             </ul>
         </li>
         <li>
             <strong>Handling Player Shooting</strong>
+            <img src={images[8]}/>
             <ul>
                 <li>Allow the player to shoot bullets upwards.</li>
                 <li>Create and manage a bullet pool to reuse bullets.</li>
@@ -94,6 +110,7 @@ import Kion from "@components/Kion.astro";
         </li>
         <li>
             <strong>Ending the Game</strong>
+            <img src={images[9]}/>
             <ul>
                 <li>
                     End the game when all enemies are destroyed or the player is
@@ -104,6 +121,7 @@ import Kion from "@components/Kion.astro";
         </li>
         <li>
             <strong>Scoring</strong>
+            <img src={images[10]}/>
             <ul>
                 <li>Keep track of and display the player's score.</li>
                 <li>Increment the score for each enemy destroyed.</li>
@@ -111,6 +129,7 @@ import Kion from "@components/Kion.astro";
         </li>
         <li>
             <strong>Creating Success Screen</strong>
+            <img src={images[11]}/>
             <ul>
                 <li>
                     Display a success message when all enemies are destroyed.
@@ -119,4 +138,5 @@ import Kion from "@components/Kion.astro";
             </ul>
         </li>
     </ol>
+
 </Story>
