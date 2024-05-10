@@ -6,6 +6,12 @@ import placeholder from "@assets/scenes/placeholder.png";
 
 import Dashie from "@components/Dashie.astro";
 import Kion from "@components/Kion.astro";
+
+const images: string[] = [];
+for (let i = 0; i < 12; i++) {
+    const num = i.toString().padStart(2, "0");
+    images.push(`${import.meta.env.BASE_URL}/storyboard/astroids-${num}.png`);
+}
 ---
 
 <Story>
@@ -36,6 +42,7 @@ import Kion from "@components/Kion.astro";
     <ol>
         <li>
             <strong>Loading Game Assets</strong>
+            <img src={images[0]} />
             <ul>
                 <li>
                     Load images for the player, asteroids, bullets, and
@@ -46,6 +53,7 @@ import Kion from "@components/Kion.astro";
         </li>
         <li>
             <strong>Creating the Title Screen</strong>
+            <img src={images[1]} />
             <ul>
                 <li>Display a title graphic.</li>
                 <li>Implement a start button.</li>
@@ -53,6 +61,10 @@ import Kion from "@components/Kion.astro";
         </li>
         <li>
             <strong>Implementing the Game Loop</strong>
+            <img src={images[2]} />
+            <img src={images[3]} />
+            <img src={images[4]} />
+
             <ul>
                 <li>
                     Handle user input (arrow keys for movement, spacebar for
@@ -71,12 +83,15 @@ import Kion from "@components/Kion.astro";
         </li>
         <li>
             <strong>Handling Player Movement</strong>
+            <img src={images[5]} />
+
             <ul>
                 <li>Move the player forward and rotate left/right.</li>
             </ul>
         </li>
         <li>
             <strong>Handling Player Shooting</strong>
+            <img src={images[6]} />
             <ul>
                 <li>
                     Allow the player to shoot bullets in the direction they are
@@ -87,6 +102,7 @@ import Kion from "@components/Kion.astro";
         </li>
         <li>
             <strong>Implementing Asteroid Movement</strong>
+            <img src={images[7]} />
             <ul>
                 <li>Move asteroids in random directions.</li>
                 <li>Split asteroids into smaller pieces when shot.</li>
@@ -94,6 +110,7 @@ import Kion from "@components/Kion.astro";
         </li>
         <li>
             <strong>Ending the Game</strong>
+            <img src={images[8]} />
             <ul>
                 <li>
                     End the game when the player is destroyed by an asteroid.
@@ -103,6 +120,7 @@ import Kion from "@components/Kion.astro";
         </li>
         <li>
             <strong>Scoring</strong>
+            <img src={images[9]} />
             <ul>
                 <li>Keep track of and display the player's score.</li>
                 <li>Increment the score for each asteroid destroyed.</li>
@@ -110,6 +128,7 @@ import Kion from "@components/Kion.astro";
         </li>
         <li>
             <strong>Creating Success Screen</strong>
+            <img src={images[10]} />
             <ul>
                 <li>
                     Display a success message when all asteroids are destroyed.
