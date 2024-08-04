@@ -12,7 +12,7 @@ import Kion from "@components/Kion.astro";
 const images: string[] = [];
 for (let i = 0; i < 11; i++) {
     const num = (i+1).toString().padStart(2, "0");
-    images.push(`${import.meta.env.BASE_URL}/storyboard/Snake-${num}.png`);
+    images.push(`/storyboard/Snake-${num}.png`);
 }
 ---
 

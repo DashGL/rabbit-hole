@@ -4,7 +4,7 @@ import Label from "@components/Label.astro";
 const images: string[] = [];
 for (let i = 0; i < 20; i++) {
     const num = (i + 1).toString().padStart(2, "0");
-    images.push(`${import.meta.env.BASE_URL}/storyboard/s0_${num}.png`);
+    images.push(`/storyboard/s0_${num}.png`);
 }
 ---
 

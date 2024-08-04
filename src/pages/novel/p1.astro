@@ -3,7 +3,7 @@ import Base from "@layouts/Base.astro";
 import { Image } from "astro:assets";
 import background from "@assets/background/living-room-day.png";
 import Textbox from "@components/Textbox.astro";
-import Link from "@components/Link.astro";
+
 ---
 
 <Base>
@@ -25,10 +25,10 @@ import Link from "@components/Link.astro";
                 class="bg-gradient-to-r from-cyan-700 to-blue-700 w-full h-full opacity-70"
             >
             </div>
-            <Link href="/novel/p2">
+            <a href="/novel/p2">
                 <button class="btn glass absolute right-4 bottom-4">Next</button
                 >
-            </Link>
+            </a>
         </div>
     </div>
     <script is:inline>
