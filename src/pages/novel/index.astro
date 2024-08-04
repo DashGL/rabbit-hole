@@ -5,7 +5,6 @@ import dashie from "@assets/dashie/facepalm.png";
 import kion from "@assets/kion/Annoyed.png";
 import background from "@assets/background/living-room-day.png";
 import Textbox from "@components/Textbox.astro";
-import Link from "@components/Link.astro";
 
 const optimizedBackgroundImage = await getImage({ src: background });
 ---
@@ -89,9 +88,9 @@ const optimizedBackgroundImage = await getImage({ src: background });
             class="bg-gradient-to-r from-cyan-700 to-blue-700 w-full h-full opacity-70"
         >
         </div>
-        <Link href="/novel/p1">
+        <a href="/novel/p1">
             <button class="btn glass absolute right-4 bottom-4">Next</button>
-        </Link>
+        </a>
     </div>
     <script is:inline>
         anime
