@@ -2,7 +2,6 @@
 import Story from "@layouts/Story.astro";
 import { Image } from "astro:assets";
 
-import placeholder from "@assets/scenes/placeholder.png";
 import start from "@assets/scenes/T2_Start.jpeg";
 import end from "@assets/scenes/T2_End.jpeg";
 
@@ -11,9 +10,14 @@ import Kion from "@components/Kion.astro";
 
 const images: string[] = [];
 for (let i = 0; i < 11; i++) {
-    const num = (i+1).toString().padStart(2, "0");
+    const num = (i + 1).toString().padStart(2, "0");
     images.push(`/storyboard/Snake-${num}.png`);
 }
+
+import title from "@assets/concepts/snake_title.png";
+import game from "@assets/concepts/snake_game.png";
+import lose from "@assets/concepts/snake_fail.png";
+import complete from "@assets/concepts/snake_complete.png";
 ---
 
 <Story>
@@ -35,7 +39,22 @@ for (let i = 0; i < 11; i++) {
     <h2>Concept</h2>
     <Image
         class="rounded-lg"
-        src={placeholder}
+        src={title}
+        alt="Title screen for brickout game with SDL on linux"
+    />
+    <Image
+        class="rounded-lg"
+        src={game}
+        alt="Title screen for brickout game with SDL on linux"
+    />
+    <Image
+        class="rounded-lg"
+        src={lose}
+        alt="Title screen for brickout game with SDL on linux"
+    />
+    <Image
+        class="rounded-lg"
+        src={complete}
         alt="Title screen for brickout game with SDL on linux"
     />
 
@@ -44,7 +63,7 @@ for (let i = 0; i < 11; i++) {
     <ol>
         <li>
             <strong>Setting Up Your Development Environment</strong>
-            <img src={images[0]}/>
+            <img src={images[0]} />
             <ul>
                 <li>Install necessary tools (SDL, OpenGL, etc.).</li>
                 <li>Set up a project directory.</li>
@@ -52,7 +71,7 @@ for (let i = 0; i < 11; i++) {
         </li>
         <li>
             <strong>Creating a Window with SDL</strong>
-            <img src={images[1]}/>
+            <img src={images[1]} />
             <ul>
                 <li>Initialize SDL.</li>
                 <li>Create a window and renderer.</li>
@@ -60,7 +79,7 @@ for (let i = 0; i < 11; i++) {
         </li>
         <li>
             <strong>Setting Up OpenGL for 2D Rendering</strong>
-            <img src={images[3]}/>
+            <img src={images[3]} />
             <ul>
                 <li>Initialize OpenGL context.</li>
                 <li>Set up viewport and projection.</li>
@@ -68,7 +87,7 @@ for (let i = 0; i < 11; i++) {
         </li>
         <li>
             <strong>Loading Game Assets</strong>
-            <img src={images[4]}/>
+            <img src={images[4]} />
             <ul>
                 <li>Load images for the snake, food, and background.</li>
                 <li>Set up texture loading with SDL.</li>
@@ -76,7 +95,7 @@ for (let i = 0; i < 11; i++) {
         </li>
         <li>
             <strong>Creating the Title Screen</strong>
-            <img src={images[5]}/>
+            <img src={images[5]} />
             <ul>
                 <li>Display a title graphic.</li>
                 <li>Implement a start button.</li>
@@ -84,7 +103,7 @@ for (let i = 0; i < 11; i++) {
         </li>
         <li>
             <strong>Implementing the Game Loop</strong>
-            <img src={images[6]}/>
+            <img src={images[6]} />
             <ul>
                 <li>Handle user input (arrow keys for movement).</li>
                 <li>Update the snake's position.</li>
@@ -93,7 +112,7 @@ for (let i = 0; i < 11; i++) {
         </li>
         <li>
             <strong>Rendering the Game</strong>
-            <img src={images[7]}/>
+            <img src={images[7]} />
             <ul>
                 <li>Render the snake and food.</li>
                 <li>Draw the game area background.</li>
@@ -101,7 +120,7 @@ for (let i = 0; i < 11; i++) {
         </li>
         <li>
             <strong>Adding Game Logic</strong>
-            <img src={images[8]}/>
+            <img src={images[8]} />
             <ul>
                 <li>Manage the snake's growth and movement.</li>
                 <li>Generate new food when eaten.</li>
@@ -109,7 +128,7 @@ for (let i = 0; i < 11; i++) {
         </li>
         <li>
             <strong>Creating Success and Game Over Screens</strong>
-            <img src={images[9]}/>
+            <img src={images[9]} />
             <ul>
                 <li>Detect when the snake hits a wall or itself.</li>
                 <li>Display a game over message with score.</li>
@@ -118,7 +137,7 @@ for (let i = 0; i < 11; i++) {
         </li>
         <li>
             <strong>Cleaning Up and Exiting</strong>
-            <img src={images[10]}/>
+            <img src={images[10]} />
             <ul>
                 <li>Free resources and close SDL.</li>
                 <li>Provide an option to quit the game.</li>
