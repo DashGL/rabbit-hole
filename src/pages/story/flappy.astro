@@ -2,10 +2,12 @@
 import Story from "@layouts/Story.astro";
 import { Image } from "astro:assets";
 
+import title from "@assets/concepts/flappy_title.png";
+import game from "@assets/concepts/flappy_game.png";
+import over from "@assets/concepts/flappy_complete.png";
+
 import start from "@assets/scenes/T6_Start.jpeg";
 import end from "@assets/scenes/T6_End.jpeg";
-
-import placeholder from "@assets/scenes/placeholder.png";
 
 import Dashie from "@components/Dashie.astro";
 import Kion from "@components/Kion.astro";
@@ -36,8 +38,20 @@ for (let i = 0; i < 12; i++) {
     <h2>Concept</h2>
     <Image
         class="rounded-lg"
-        src={placeholder}
+        src={title}
         alt="Title screen for brickout game with SDL on linux"
+    />
+
+    <Image
+        class="rounded-lg"
+        src={game}
+        alt="Gameplay loop for brickout game with SDL on linux"
+    />
+
+    <Image
+        class="rounded-lg"
+        src={over}
+        alt="Option 1 for when Kion loses and gets trapped"
     />
 
     <h2>Program</h2>
