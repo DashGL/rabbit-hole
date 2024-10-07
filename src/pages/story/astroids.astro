@@ -2,7 +2,8 @@
 import Story from "@layouts/Story.astro";
 import { Image } from "astro:assets";
 
-import placeholder from "@assets/scenes/placeholder.png";
+import start from "@assets/scenes/T5_Start.jpeg";
+import end from "@assets/scenes/T5_End.jpeg";
 
 import Dashie from "@components/Dashie.astro";
 import Kion from "@components/Kion.astro";
@@ -10,14 +11,19 @@ import Kion from "@components/Kion.astro";
 const images: string[] = [];
 for (let i = 0; i < 12; i++) {
     const num = i.toString().padStart(2, "0");
-    images.push(`${import.meta.env.BASE_URL}/storyboard/astroids-${num}.png`);
+    images.push(`/storyboard/astroids-${num}.png`);
 }
+
+import title from "@assets/concepts/astroids_title.png";
+import game from "@assets/concepts/astroids_game.png";
+import lose from "@assets/concepts/astroids_fail.png";
+import complete from "@assets/concepts/astroids_complete.png";
 ---
 
 <Story>
     <Image
         class="rounded-lg"
-        src={placeholder}
+        src={start}
         alt="Kion falls into the Digital World"
     />
     <h1>Astroids</h1>
@@ -33,7 +39,22 @@ for (let i = 0; i < 12; i++) {
     <h2>Concept</h2>
     <Image
         class="rounded-lg"
-        src={placeholder}
+        src={title}
+        alt="Title screen for brickout game with SDL on linux"
+    />
+    <Image
+        class="rounded-lg"
+        src={game}
+        alt="Title screen for brickout game with SDL on linux"
+    />
+    <Image
+        class="rounded-lg"
+        src={lose}
+        alt="Title screen for brickout game with SDL on linux"
+    />
+    <Image
+        class="rounded-lg"
+        src={complete}
         alt="Title screen for brickout game with SDL on linux"
     />
 
@@ -137,4 +158,10 @@ for (let i = 0; i < 12; i++) {
             </ul>
         </li>
     </ol>
+
+    <Image
+        class="rounded-lg"
+        src={end}
+        alt="Kion falls into the Digital World"
+    />
 </Story>

@@ -2,16 +2,22 @@
 import Story from "@layouts/Story.astro";
 import { Image } from "astro:assets";
 
-import placeholder from "@assets/scenes/placeholder.png";
+import start from "@assets/scenes/T3_Start.jpeg";
+import end from "@assets/scenes/T3_End.jpeg";
 
 import Dashie from "@components/Dashie.astro";
 import Kion from "@components/Kion.astro";
+
+import title from "@assets/concepts/block_title.png";
+import game from "@assets/concepts/block_game.png";
+import lose from "@assets/concepts/block_fail.png";
+import complete from "@assets/concepts/block_complete.png";
 ---
 
 <Story>
     <Image
         class="rounded-lg"
-        src={placeholder}
+        src={start}
         alt="Kion falls into the Digital World"
     />
     <h1>Tetris</h1>
@@ -27,7 +33,22 @@ import Kion from "@components/Kion.astro";
     <h2>Concept</h2>
     <Image
         class="rounded-lg"
-        src={placeholder}
+        src={title}
+        alt="Title screen for brickout game with SDL on linux"
+    />
+    <Image
+        class="rounded-lg"
+        src={game}
+        alt="Title screen for brickout game with SDL on linux"
+    />
+    <Image
+        class="rounded-lg"
+        src={lose}
+        alt="Title screen for brickout game with SDL on linux"
+    />
+    <Image
+        class="rounded-lg"
+        src={complete}
         alt="Title screen for brickout game with SDL on linux"
     />
 
@@ -112,4 +133,10 @@ import Kion from "@components/Kion.astro";
             </ul>
         </li>
     </ol>
+
+    <Image
+        class="rounded-lg"
+        src={end}
+        alt="Kion falls into the Digital World"
+    />
 </Story>

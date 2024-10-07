@@ -2,6 +2,9 @@
 import Story from "@layouts/Story.astro";
 import { Image } from "astro:assets";
 
+import start from "@assets/scenes/T6_Start.jpeg";
+import end from "@assets/scenes/T6_End.jpeg";
+
 import placeholder from "@assets/scenes/placeholder.png";
 
 import Dashie from "@components/Dashie.astro";
@@ -10,14 +13,14 @@ import Kion from "@components/Kion.astro";
 const images: string[] = [];
 for (let i = 0; i < 12; i++) {
     const num = i.toString().padStart(2, "0");
-    images.push(`${import.meta.env.BASE_URL}/storyboard/flappy-${num}.png`);
+    images.push(`/storyboard/flappy-${num}.png`);
 }
 ---
 
 <Story>
     <Image
         class="rounded-lg"
-        src={placeholder}
+        src={start}
         alt="Kion falls into the Digital World"
     />
     <h1>Flappy Bird</h1>
@@ -127,4 +130,10 @@ for (let i = 0; i < 12; i++) {
             </ul>
         </li>
     </ol>
+
+    <Image
+        class="rounded-lg"
+        src={end}
+        alt="Kion falls into the Digital World"
+    />
 </Story>
