@@ -1,0 +1,247 @@
+---
+title: Building for Retro Pie
+description: Jumping in and making a test application for Retro Pie
+category: Development
+publishDate: 2024-11-05T06:18:32.801Z
+thumbnail: /src/assets/thumbnails/55-retro-pie.png
+---
+
+There are a lot of aspects of DashGL that I've been looking around and playing with. 
+I've been building out the story with the different thumbnails for each of the start
+and ends for each of the tutorials. I've been playing around with Mtion, trying to figure
+out the tools for how to tell the story in the tutorials. I've been playing around with
+hardware design and the Raspberry Zero 2W. And now that I have the ground work laid for
+a lot of that I'm finally coming back and looking into the code for BreakOut, which 
+can then be broken down into the steps for a tutorial. 
+
+One aspect that I've been worried about for the tutorials is the syntax around how to 
+handle drawing for OpenGL. The two main ways seem to be `glBegin` and `glEnd`, versus
+using shaders. And I've been wondering how I manage the complexity of the code, to keep
+things simple at first, but then settle into a consistent coding style for the rest of the
+series. But what I found when I starting playing around with RetroPie is that there is 
+a very narrow set of code using OpenGLES and SDL2 that works for this application.
+
+What seems to be a beneficial side effect of this, is that this narrow set of code might
+able to be compiled to other environments such as WebGL, PSVita and potentially Android.
+What this means, is that instead of having a narrow definition of coding for a small niche
+of acknowledging these other applications while not supporting them, that I might be able
+to write a narrow set of code that is able to support multiple platforms.
+
+What this means in the short term is that before I focus too much on the full tutorials, to
+start with a triangle for each build target, and then start to layer into functionality 
+from there to be aware of when and where functionality starts to diverge. The following
+is a short list of platforms I want to test for support and compatibility:
+
+- RetroPie
+- RecallBox
+- TrimUI
+- RG35xxSP
+- PowKiddy X55
+- PSVita
+- WebGL
+
+I'm tempted to run out and buy all of these. But I'm trying not to accumulate too much 
+stuff at the moment. First we'll start with the Pi's and worry about that first as that's
+what I have on hand at the moment. 
+
+## RetroPie
+
+As far as the original topic for this blog post. I managed to get a simple triangle 
+running in RetroPie, so the rest of this post will focus on that. We'll start with
+the source code. In my case I have it in `/home/pi/src/mygame/main.c`.
+
+```c
+/*
+ * This code is dedicated to the public domain under the Creative Commons CC0 1.0 Universal License.
+ * You may do anything with this work, including copying, modifying, distributing, and performing it,
+ * even for commercial purposes, without asking permission. For more information, see:
+ * https://creativecommons.org/publicdomain/zero/1.0/
+ */
+
+
+// main.c
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_opengles2.h>
+#include <stdbool.h>
+#include <stdio.h>
+
+const GLchar* vertexShaderSource = R"(
+    attribute vec2 position;
+    void main() {
+        gl_Position = vec4(position, 0.0, 1.0);
+    }
+)";
+
+const GLchar* fragmentShaderSource = R"(
+    precision mediump float;
+    uniform vec4 color;
+    void main() {
+        gl_FragColor = color;
+    }
+)";
+
+GLuint shaderProgram;
+GLint posAttrib, colorUniform;
+
+bool initSDL(SDL_Window **window, SDL_GLContext *glContext) {
+    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
+        printf("Failed to initialize SDL: %s\n", SDL_GetError());
+        return false;
+    }
+
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_ES);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
+    SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+
+    *window = SDL_CreateWindow("SDL Triangle", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, SDL_WINDOW_OPENGL);
+    if (!*window) {
+        printf("Failed to create window: %s\n", SDL_GetError());
+        SDL_Quit();
+        return false;
+    }
+
+    *glContext = SDL_GL_CreateContext(*window);
+    if (!*glContext) {
+        printf("Failed to create OpenGL context: %s\n", SDL_GetError());
+        SDL_DestroyWindow(*window);
+        SDL_Quit();
+        return false;
+    }
+
+    SDL_ShowCursor(SDL_DISABLE);
+    return true;
+}
+
+GLuint compileShader(const GLchar* source, GLenum type) {
+    GLuint shader = glCreateShader(type);
+    glShaderSource(shader, 1, &source, NULL);
+    glCompileShader(shader);
+    return shader;
+}
+
+bool initOpenGL() {
+    GLuint vertexShader = compileShader(vertexShaderSource, GL_VERTEX_SHADER);
+    GLuint fragmentShader = compileShader(fragmentShaderSource, GL_FRAGMENT_SHADER);
+
+    shaderProgram = glCreateProgram();
+    glAttachShader(shaderProgram, vertexShader);
+    glAttachShader(shaderProgram, fragmentShader);
+    glLinkProgram(shaderProgram);
+
+    glDeleteShader(vertexShader);
+    glDeleteShader(fragmentShader);
+
+    posAttrib = glGetAttribLocation(shaderProgram, "position");
+    colorUniform = glGetUniformLocation(shaderProgram, "color");
+
+    return true;
+}
+
+void renderTriangle() {
+    glClearColor(0.0, 0.0, 0.0, 1.0);
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    GLfloat vertices[] = {
+        0.0f,  0.5f,
+       -0.5f, -0.5f,
+        0.5f, -0.5f
+    };
+
+    glUseProgram(shaderProgram);
+    glUniform4f(colorUniform, 1.0f, 0.5f, 0.0f, 1.0f);  // Orange color
+
+    glEnableVertexAttribArray(posAttrib);
+    glVertexAttribPointer(posAttrib, 2, GL_FLOAT, GL_FALSE, 2 * sizeof(GLfloat), vertices);
+
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+
+    glDisableVertexAttribArray(posAttrib);
+}
+
+void cleanup(SDL_Window *window, SDL_GLContext glContext) {
+    SDL_GL_DeleteContext(glContext);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+}
+
+int main() {
+    SDL_Window *window;
+    SDL_GLContext glContext;
+
+    if (!initSDL(&window, &glContext) || !initOpenGL()) {
+        return -1;
+    }
+
+    bool running = true;
+    SDL_Event event;
+
+    while (running) {
+        while (SDL_PollEvent(&event)) {
+            if (event.type == SDL_QUIT || (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_ESCAPE)) {
+                running = false;
+            }
+        }
+
+        renderTriangle();
+        SDL_GL_SwapWindow(window);
+    }
+
+    cleanup(window, glContext);
+    return 0;
+}
+```
+
+Next we compile the game, and copy the binary to `/home/pi/RetroPie/roms/ports/mygame`.
+Though to be honest I'm not exactly sure where the best place for the binary is.
+
+```bash
+gcc main.c -o mygame -lSDL2 -lSDL2main -L/opt/vc/lib -lbrcmGLESv2 -lm
+mkdir -P /home/pi/RetroPie/roms/ports/mygame
+/bin/cp mygame /home/pi/RetroPie/roms/ports/mygame
+```
+
+Next we create a file named `/opt/retropie/configs/ports/mygame/emulators.cfg`
+```sh
+mygame = "pushd /home/pi/RetroPie/roms/ports/mygame; ./mygame; popd"
+default = "mygame"
+```
+
+And last to act as a launcher for the game, we create a launcher inside of 
+`/home/pi/RetroPie/roms/ports/`, which we will call `mygame.sh`
+```sh
+#!/bin/bash
+cd /home/pi/RetroPie/roms/ports/mygame
+./mygame
+```
+
+The result is shown as follows:
+
+![RetroPie Ports Menu](/blog/GbXytFsbgAAVwmZ.jpg)
+
+![Triangle Running from RetroPie](/blog/GbXytGWaUAAPTMu.jpg)
+
+## Thoughts
+
+The process of coding for RetroPie has been fairly unintuitive. EmulationStation on RetroPie
+doesn't run in a window system that uses X11 or Wayland. This makes it confusing on what the
+syntax sugar for code needs to be in. Normally when developing on the desktop, you would define
+a window of a specific size, but since we're using not using a desktop that doesn't seem to be
+the case. And yet in our code that's what we were able to do.
+
+Right now I'm not too worried about understanding the syntax, I'm mostly focused on what works
+and what doesn't. The first step is to try the same example for multiple build targets, and then
+from there see how that code can be applied from a desktop to be able to test code before it is 
+deployed. 
+
+The other aspect of RetroPie that was unintuitive is where the binary was. It looks like 
+RetroPie has a common command for running emulators, which is located at `/opt/retropie/supplementary/runcommand/runcommand.sh`.
+Which means that our execute script needs to call this. From there we also have the config file.
+And then we have the binary, and the data for the game. 
+
+A side note about this is that RetroPie will display `sh` files in the `/home/pi/RetroPie/roms/ports`. 
+This isn't too much of an issue if we have our binary and data stashed in here. When i was testing
+I had the source and a small `sh` file to stash the command to compile. I guess that doesn't matter
+too much if there is a proper Makefile, but it's something to be aware of.
+
+Either way, first test out of the way. Next I might as well try RecallBox to see if the process is similar. 
