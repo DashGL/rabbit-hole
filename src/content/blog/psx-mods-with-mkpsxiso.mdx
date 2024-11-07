@@ -50,3 +50,20 @@ which mkpsxiso
 ```
 
 And you can also run `mkpsxiso --help` to see the options.
+
+## Unpacking
+
+Now that we have the tool installed, we can export the files from the MegaMan
+Legends 2 rom into a folder along with an `xml` file in order to build it later.
+
+In terms of pathing, I'm in `/home/kion/Documents/psx/` with a rom named
+`Mega Man Legends 2 (USA) (Track 1).bin`. We can export the files along with
+with the `xml` file with the following command.
+
+```bash
+dumpsxiso -x files/ -s mml2.xml Mega\ Man\ Legends\ 2\ \(USA\)\ \(Track\ 1\).bin
+```
+
+This will export the extracted game files to `/home/kion/Documents/psx/files`
+(dynamically created), and give us a `mml2.xml` file that we can use to extract it
+later.
