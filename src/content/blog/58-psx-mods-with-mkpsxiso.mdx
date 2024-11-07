@@ -1,0 +1,125 @@
+---
+title: PSX mods with mkpsxiso
+description: Trying to decompress a file and repacking it in psx
+category: Development
+publishDate: 2024-11-06T21:59:23.414Z
+thumbnail: /src/assets/thumbnails/58-cover.png
+---
+
+One of the largest painpoints i had for Miku Legends 2 was working with the
+CD image to be able to swap out the files. Originally I wanted to be able
+to extract files from the disk, replace them and then rebuild the disk. I
+wasn't able to figure out how to do this, and I ended up slicing up the
+files into chunks of `0x800` bytes and then doing a search and replace
+for each one of the individual chunks.
+
+This was until I found [Hilltop](https://x.com/HilltopWorks)'s video on
+[How to Romhack: Mega Man Legends 2](https://www.youtube.com/watch?v=S0RmHFpdf-Y),
+where he mentions the tool `mkpsxiso`. Unfortunately by the time I had
+found the thing I was looking for, I was almost complete with the mod and
+ended up pushing forward with the chunk approach. Now that Miku Legends 2
+version 1.0 is out as a patch, I can go back and look into other approaches
+that should make the process easier.
+
+## Installing
+
+First note that the project is over at: [https://github.com/Lameguy64/mkpsxiso](https://github.com/Lameguy64/mkpsxiso).
+And first we'll install the dependencies.
+
+```bash
+sudo apt update
+sudo apt install -y cmake build-essential git
+```
+
+Then we will clone, compile and install.
+```bash
+cd /tmp
+git clone https://github.com/Lameguy64/mkpsxiso.git
+cd mkpsxiso
+git submodule update --init --recursive
+cmake -B build -DCMAKE_BUILD_TYPE=Release .
+cmake --build build
+sudo cmake --install build
+```
+
+After that, the binaries will be copied to `/usr/local/bin/`.
+You can confirm this with the `which` command.
+```bash
+which mkpsxiso
+/usr/local/bin/mkpsxiso
+```
+
+And you can also run `mkpsxiso --help` to see the options.
+
+## Unpacking
+
+Now that we have the tool installed, we can export the files from the MegaMan
+Legends 2 rom into a folder along with an `xml` file in order to build it later.
+
+In terms of pathing, I'm in `/home/kion/Documents/psx/` with a rom named
+`Mega Man Legends 2 (USA) (Track 1).bin`. We can export the files along with
+with the `xml` file with the following command.
+
+```bash
+dumpsxiso -x files/ -s mml2.xml Mega\ Man\ Legends\ 2\ \(USA\)\ \(Track\ 1\).bin
+```
+
+This will export the extracted game files to `/home/kion/Documents/psx/files`
+(dynamically created), and give us a `mml2.xml` file that we can use to extract it
+later.
+
+## Decompressing
+
+As a proof of concept, we're going to start with `COMMON/PL00T.BIN`. This
+contains MegaMan's body face texture that is used for most of the game.
+Technically it's all of the game, except when the game patches in from a different
+file after a cutscene. Once the system is started, this will be the default
+texture that gets loaded into RAM. And it is compressed, which makes it
+very annoying to mod.
+
+Since the decompressed version of this file is in `PL00T2.BIN`, it looks like we
+can be lazy and simply splice these two together. The code for this is as follows.
+
+```TypeScript
+import { readFileSync, writeFileSync } from "fs";
+const PL00T = readFileSync("PL00T.BIN");
+const PL00T2 = readFileSync("PL00T2.BIN");
+
+const pop = PL00T.subarray(0x3000);
+const shift = PL00T2.subarray(0, 0x8800);
+
+const merged = Buffer.concat([shift, pop]);
+writeFileSync("files/COMMON/PL00T.BIN", merged);
+```
+
+Now that we have that written, we can go ahead and rebuild the CD image to
+see if it worked or not.
+
+## Rebuilding
+
+From there we can try to rebuild the ROM with the following command. And then we can
+open up the rebuilt rom in an emulator.
+
+```bash
+mkpsxiso -o MML2.bin mml2.xml
+```
+
+And once we try it, the game crashes after the Capcom logo with a black screen.
+My experience with this error is that it tends to be and issue with reading an archive.
+Considering that we updated the body texture, it wouldn't surprise me if that was
+being read for something shortly after loading the game.
+
+Which means that right now, this is a failure since i don't have the option to debug
+I highly doubt that the game has per-archive code for loading specific archives in terms
+of where it expects files, or there formats to be within the archive. But at the same time
+i wouldn't put it passed the devs.
+
+Another option is that the game has the offsets to each one of the files hard coded into the
+EXE, and that i might need to shift down the sectors of where a file is expected to be.
+To sanity check, i rebuilt the image without loading in my updated `PL00T.BIN` file. Which indicates
+that there isn't an issue with `mkpsxiso` itself.
+
+For now I've confirmed that while this approach is appealing, it means that i took the correct
+approach with respect to replacing files in the Miku mod. I have been able that while I can't
+change the length of the files, this does seem to be a better mechanism for extracting and
+rebuilding a PlayStation rom.
