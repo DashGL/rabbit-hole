@@ -1,0 +1,52 @@
+---
+title: PSX mods with mkpsxiso
+description: Trying to decompress a file and repacking it in psx
+category: Development
+publishDate: 2024-11-06T21:59:23.414Z
+thumbnail: /src/assets/thumbnails/placeholder.png
+---
+
+One of the largest painpoints i had for Miku Legends 2 was working with the
+CD image to be able to swap out the files. Originally I wanted to be able
+to extract files from the disk, replace them and then rebuild the disk. I
+wasn't able to figure out how to do this, and I ended up slicing up the
+files into chunks of `0x800` bytes and then doing a search and replace
+for each one of the individual chunks.
+
+This was until I found [Hilltop](https://x.com/HilltopWorks)'s video on
+[How to Romhack: Mega Man Legends 2](https://www.youtube.com/watch?v=S0RmHFpdf-Y),
+where he mentions the tool `mkpsxiso`. Unfortunately by the time I had
+found the thing I was looking for, I was almost complete with the mod and
+ended up pushing forward with the chunk approach. Now that Miku Legends 2
+version 1.0 is out as a patch, I can go back and look into other approaches
+that should make the process easier.
+
+## Installing
+
+First note that the project is over at: [https://github.com/Lameguy64/mkpsxiso](https://github.com/Lameguy64/mkpsxiso).
+And first we'll install the dependencies.
+
+```bash
+sudo apt update
+sudo apt install -y cmake build-essential git
+```
+
+Then we will clone, compile and install.
+```bash
+cd /tmp
+git clone https://github.com/Lameguy64/mkpsxiso.git
+cd mkpsxiso
+git submodule update --init --recursive
+cmake -B build -DCMAKE_BUILD_TYPE=Release .
+cmake --build build
+sudo cmake --install build
+```
+
+After that, the binaries will be copied to `/usr/local/bin/`.
+You can confirm this with the `which` command.
+```bash
+which mkpsxiso
+/usr/local/bin/mkpsxiso
+```
+
+And you can also run `mkpsxiso --help` to see the options.
