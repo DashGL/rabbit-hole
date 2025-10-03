@@ -3,25 +3,25 @@
     "https://www.w3.org/ns/did/v1",
     "https://w3id.org/security/suites/jws-2020/v1"
   ],
-  "id": "did:web:your-domain.com",
+  "id": "did:web:dashgl.com",
   "verificationMethod": [
     {
-      "id": "did:web:your-domain.com#key-1",
+      "id": "did:web:dashgl.com#key-1",
       "type": "JsonWebKey2020",
-      "controller": "did:web:your-domain.com",
+      "controller": "did:web:dashgl.com",
       "publicKeyJwk": {
         "crv": "P-256",
         "kty": "EC",
-        "x": "xsIInQnun0J-tege8WiUIyacG_EHtL4Bq-lrZHA-mpQ",
-        "y": "6D5pftn5PRd6JaeHRW-JkQj9-zOKEJWNHiXLq0-ejb4",
+        "x": "8VFwLWOjfa0c1GwX_i-CyMHm3zsp2iI3mmCYW1AwjRk",
+        "y": "xHfmqDcBVN5edXEykNQ8s8G5IjMyJAu3wKAWLfcMp9I",
         "alg": "ES256"
       }
     }
   ],
   "authentication": [
-    "did:web:your-domain.com#key-1"
+    "did:web:dashgl.com#key-1"
   ],
   "assertionMethod": [
-    "did:web:your-domain.com#key-1"
+    "did:web:dashgl.com#key-1"
   ]
 }
