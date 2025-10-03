@@ -1,0 +1,27 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/suites/jws-2020/v1"
+  ],
+  "id": "did:web:your-domain.com",
+  "verificationMethod": [
+    {
+      "id": "did:web:your-domain.com#key-1",
+      "type": "JsonWebKey2020",
+      "controller": "did:web:your-domain.com",
+      "publicKeyJwk": {
+        "crv": "P-256",
+        "kty": "EC",
+        "x": "xsIInQnun0J-tege8WiUIyacG_EHtL4Bq-lrZHA-mpQ",
+        "y": "6D5pftn5PRd6JaeHRW-JkQj9-zOKEJWNHiXLq0-ejb4",
+        "alg": "ES256"
+      }
+    }
+  ],
+  "authentication": [
+    "did:web:your-domain.com#key-1"
+  ],
+  "assertionMethod": [
+    "did:web:your-domain.com#key-1"
+  ]
+}
